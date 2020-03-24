@@ -18,7 +18,7 @@ app.prepare().then(() => {
     server.use(express.json());
     server.use(express.urlencoded({ extended: false }));
     server.use(cookieParser());
-    server.use(express.static(path.join(__dirname, 'public')));
+    // server.use(express.static(path.join(__dirname, 'public')));
 
     server.use('/', indexRouter);
     server.use('/users', usersRouter);

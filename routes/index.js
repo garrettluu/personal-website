@@ -3,9 +3,8 @@ module.exports = function (app) {
   var router = express.Router();
   let handle = app.getRequestHandler();
 
-  /* GET home page. */
-  router.get('*', function (req, res, next) {
-    // res.render('index', { title: 'Express' });
+  /* Handle requests with Next.js */
+  router.get('*', function (req, res) {
     return handle(req, res);
   });
 

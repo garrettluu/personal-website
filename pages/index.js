@@ -11,6 +11,11 @@ export default () => {
                     <div className="fancy-rectangle"></div>
                 </p>
             </div>
+            <div className="square-frame-container">
+                <SquareFrame imgLink="/images/title_thumbnail_1.jpg"/>
+                <SquareFrame imgLink="/images/title_thumbnail_2.jpg"/>
+                <SquareFrame imgLink="/images/title_thumbnail_3.jpg"/>
+            </div>
             <style jsx>{`
                 .header {
                     display: flex;
@@ -38,6 +43,19 @@ export default () => {
                     height: 8px;
                     background-color: tomato;
                 }
+
+                .square-frame-container {
+                    position: absolute;
+                    top: 383px;
+                    width: 100%;
+
+                    display: flex;
+                    flex-direction: horizontal;
+                    justify-content: center;
+
+                    margin: 0 auto;
+                }
+
             `}
             </style>
         </Layout>

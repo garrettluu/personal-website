@@ -35,7 +35,7 @@ export default ({ children, title = 'Garrett Luu' }) => {
                 }
 
                 nav {
-                    position: absolute;
+                    position: fixed;
                 }
             `}
             </style>

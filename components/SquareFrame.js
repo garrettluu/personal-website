@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default (props) => {
+    const [mount, didMount] = useState(false);
+    useEffect(() => {
+        didMount(true);
+    });
+
     return (
-        <div className="frame">
+        <div className={`frame fade-in ${mount && 'visible'}`}>
             <img src={props.imgLink}></img>
 
             <style jsx>{`
@@ -25,6 +30,15 @@ export default (props) => {
                     height: 232px;
 
                     object-fit:cover;
+                }
+
+                .fade-in {
+                    opacity: 0;
+                }
+
+                .fade-in.visible {
+                    transition: opacity .25s ease-in;
+                    opacity: 1;
                 }
             `}
             </style>

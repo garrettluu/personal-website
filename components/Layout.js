@@ -12,7 +12,7 @@ export default ({ children, title = 'Garrett Luu' }) => {
                     name="viewport"
                     content="initial-scale=1.0, width=device-width"
                     key="viewport" />
-                <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto|Roboto+Slab&display=swap" rel="stylesheet"></link>
+                <link href="https://fonts.googleapis.com/css?family=Oswald:400,500,600|Roboto:300,300i,500,500i&display=swap" rel="stylesheet"></link>
             </Head>
             <nav>
                 <Link href="/">

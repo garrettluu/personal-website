@@ -10,7 +10,7 @@ export default () => {
                     name="viewport"
                     content="initial-scale=1.0, width=device-width"
                     key="viewport" />
-                <link href="https://fonts.googleapis.com/css?family=Oswald:400,500,600|Roboto:300&display=swap" rel="stylesheet"></link>
+                <link href="https://fonts.googleapis.com/css?family=Oswald:600|Roboto:300&display=swap" rel="stylesheet"></link>
             </Head>
             <h1>
                 404: Not found
@@ -27,6 +27,7 @@ export default () => {
                 h1 {
                     font-family: 'Oswald', sans-serif;
                     font-size: 72px;
+                    font-weight: 600;
 
                     margin: auto;
                 }

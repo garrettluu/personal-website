@@ -1,8 +1,12 @@
 import React from 'react';
+
 import Layout from '../components/Layout';
 import SquareFrame from '../components/SquareFrame';
 import ActivityCard from '../components/ActivityCard';
 
+/**
+ * Home page of website
+ */
 export default () => {
     return (
         <Layout>

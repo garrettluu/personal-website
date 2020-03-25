@@ -3,26 +3,38 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 
+/**
+ * Layout container with navbar
+ */
 export default ({ children, title = 'Garrett Luu' }) => {
 
+    const SCROLL_THRESHOLD = 10;
+
+    // Some state hooks to control style of navbar
     let [navButtonClass, setNavButtonClass] = useState("nav-button");
     let [navClass, setNavClass] = useState("nav-bar");
 
-    let [isMounted, didMount] = useState(false);
-
+    /**
+     * Activates when the user scrolls
+     */
     let onScroll = () => {
-        if (window.scrollY >= 10) {
+        if (window.scrollY >= SCROLL_THRESHOLD) {
+            // Make the navbar opque and nav buttons to use black text
             setNavButtonClass("nav-button nav-button-dark");
             setNavClass("nav-bar nav-opaque");
         } else {
+            // Make navbar transparent with white text
             setNavButtonClass("nav-button");
             setNavClass("nav-bar");
         }
     };
 
+    // componentDidMount
     useEffect(() => {
+        // Add scroll listener when component mounts
         window.addEventListener('scroll', onScroll);
-        didMount(true);
+
+        // Remove scroll listener when component unmounts
         return () => {window.removeEventListener('scroll', onScroll)};
     });
 
@@ -56,7 +68,7 @@ export default ({ children, title = 'Garrett Luu' }) => {
                     top: 0;
                 }
 
-                nav {
+                .nav-bar {
                     position: fixed;
                 }
 
@@ -76,7 +88,7 @@ export default ({ children, title = 'Garrett Luu' }) => {
             </style>
 
             <style jsx>{`
-                nav {
+                .nav-bar {
                     transition: background-color .25s ease-in;
                     padding: 24px;
                     width: 100%;

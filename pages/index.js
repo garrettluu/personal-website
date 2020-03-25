@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import SquareFrame from '../components/SquareFrame';
+import ActivityCard from '../components/ActivityCard';
 
 export default () => {
     return (
@@ -31,6 +32,28 @@ export default () => {
                         I love to be involved in both school and work.
                     </h2>
                 </h1>
+            </div>
+
+            <div className="activitycard-container">
+                <ActivityCard className="activitycard"
+                              imgLink="/images/acm.png"
+                              title="ACM @ UC San Diego"
+                              role="Technical Event Director"
+                              date="2019.11 - now">
+                    <p className="body-text">
+                        Lorem ipsum dolor sit amet
+                    </p>
+                </ActivityCard>
+
+                <ActivityCard className="activitycard"
+                              imgLink="/images/ieee.png"
+                              title="IEEE UC San Diego Branch"
+                              role="Quarterly Projects Mentor"
+                              date="2019.09 - 2020.3">
+                    <p className="body-text">
+                        Lorem ipsum dolor sit amet
+                    </p>
+                </ActivityCard>
             </div>
 
             <div className="subheader" id="projects">

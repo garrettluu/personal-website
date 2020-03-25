@@ -65,6 +65,7 @@ export default ({ children, title = 'Garrett Luu' }) => {
                     height: 8px;
                     background-color: tomato;
 
+                    margin: auto;
                 }
 
                 .body-text {

@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import Typist from 'react-typist';
+import Emoji from 'a11y-react-emoji';
 
 import Layout from '../components/Layout';
 import SquareFrame from '../components/SquareFrame';
 import ActivityCard from '../components/ActivityCard';
 import ProjectSummary from '../components/ProjectSummary';
+import TypistLoop from "../components/TypistLoop";
 
 /**
  * Home page of website
@@ -39,32 +41,11 @@ export default () => {
                     <h1 className="intro-header">
                         I am a&nbsp;
                     </h1>
-                    {typing ? (<Typist cursor={{
-                        show: false,
-                        blink: true,
-                        element: '|',
-                        hideWhenDone: true,
-                        hideWhenDoneDelay: 1000,
-                    }}
-                                       onTypingDone={doneTyping}>
-                        <Typist.Delay ms={1000}/>
-                        <div className="flex-horizontal">
-                            <h1 className="intro-header">
-                                developer.
-                            </h1>
-                            <Typist.Backspace count={10} delay={1500}/>
-                            <Typist.Delay ms={1000}/>
-                            <h1 className="intro-header">
-                                designer.
-                            </h1>
-                            <Typist.Backspace count={9} delay={1500}/>
-                            <Typist.Delay ms={1000}/>
-                            <h1 className="intro-header">
-                                pursuer of knowledge.
-                            </h1>
-                            <Typist.Backspace count={21} delay={1500}/>
-                        </div>
-                    </Typist>) : "" }
+                    <TypistLoop words={[
+                        "developer.",
+                        "mathematician.",
+                        "pursuer of knowledge.",
+                    ]}/>
                 </div>
                 <div className="fancy-rectangle"></div>
                 <p className="body-text">
@@ -112,7 +93,7 @@ export default () => {
 
                 <ActivityCard className="activitycard"
                               imgLink="/images/acm.png"
-                              title="ACM @ UC San Diego "
+                              title="ACM @ UC San Diego🔷"
                               role="Technical Event Director"
                               date="2019.11 - now">
                     <p className="body-text">

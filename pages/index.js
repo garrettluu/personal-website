@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import Typist from 'react-typist';
 
 import Layout from '../components/Layout';
 import SquareFrame from '../components/SquareFrame';
@@ -9,6 +10,16 @@ import ProjectSummary from '../components/ProjectSummary';
  * Home page of website
  */
 export default () => {
+    const [typing, setTyping] = useState(true);
+
+    const doneTyping = () => {
+        setTyping(false);
+    };
+
+    useEffect(() => {
+        setTyping(true);
+    }, [typing]);
+
     return (
         <Layout>
             <div className="header">
@@ -24,22 +35,52 @@ export default () => {
             </div>
 
             <div className="intro">
+                <div className="flex-horizontal">
+                    <h1 className="intro-header">
+                        I am a&nbsp;
+                    </h1>
+                    {typing ? (<Typist cursor={{
+                        show: false,
+                        blink: true,
+                        element: '|',
+                        hideWhenDone: true,
+                        hideWhenDoneDelay: 1000,
+                    }}
+                                       onTypingDone={doneTyping}>
+                        <Typist.Delay ms={1000}/>
+                        <div className="flex-horizontal">
+                            <h1 className="intro-header">
+                                developer.
+                            </h1>
+                            <Typist.Backspace count={10} delay={1500}/>
+                            <h1 className="intro-header">
+                                designer.
+                            </h1>
+                            <Typist.Backspace count={9} delay={1500}/>
+                            <h1 className="intro-header">
+                                pursuer of knowledge.
+                            </h1>
+                            <Typist.Backspace count={21} delay={1500}/>
+                        </div>
+                    </Typist>) : "" }
+                </div>
+                <div className="fancy-rectangle"></div>
                 <p className="body-text">
-                    Hello and welcome to my website! I'm Garrett, a UCSD 
-                    student majoring in Computer Science. I am a developer of 
-                    various things, and I've worked on a wide variety of 
-                    projects in the past, including Android development, FRC 
-                    control systems, and TI calculators. Programming is 
-                    something I'm passionate about, and I just love coding and 
+                    Hello and welcome to my website! I'm Garrett, a UCSD
+                    student majoring in Computer Science. I am a developer of
+                    various things, and I've worked on a wide variety of
+                    projects in the past, including Android development, FRC
+                    control systems, and TI calculators. Programming is
+                    something I'm passionate about, and I just love coding and
                     learning whatever I can.
                 </p>
                 <p className="body-text">
-                    This website is just a personal project for me to learn web 
-                    development and a place for me to nerd out and talk about 
-                    my ongoing projects. It also serves as a hub so that anyone 
-                    can look through my independent projects in one place, and 
-                    possibly a future portfolio/resume if I want a job or 
-                    something. Stuff is still under construction around here, 
+                    This website is just a personal project for me to learn web
+                    development and a place for me to nerd out and talk about
+                    my ongoing projects. It also serves as a hub so that anyone
+                    can look through my independent projects in one place, and
+                    possibly a future portfolio/resume if I want a job or
+                    something. Stuff is still under construction around here,
                     but feel free to have a look around!
                 </p>
             </div>
@@ -56,10 +97,10 @@ export default () => {
 
             <div className="activitycard-container">
                 <ActivityCard className="activitycard"
-                    imgLink="/images/bentley.png"
-                    title="Bentley Systems"
-                    role="Incoming Software Development Intern"
-                    date="2020.6 - 2020.9">
+                              imgLink="/images/bentley.png"
+                              title="Bentley Systems"
+                              role="Incoming Software Development Intern"
+                              date="2020.6 - 2020.9">
                     <p className="body-text">
                         Recently, I was accepted into Bentley Systems' summer internship
                         program! I excited to see where this opportunity has in store for
@@ -68,10 +109,10 @@ export default () => {
                 </ActivityCard>
 
                 <ActivityCard className="activitycard"
-                    imgLink="/images/acm.png"
-                    title="ACM @ UC San Diego "
-                    role="Technical Event Director"
-                    date="2019.11 - now">
+                              imgLink="/images/acm.png"
+                              title="ACM @ UC San Diego "
+                              role="Technical Event Director"
+                              date="2019.11 - now">
                     <p className="body-text">
                         I taught technical workshops about
                         Firebase and Git/Unix, volunteered to help during other technical
@@ -84,10 +125,10 @@ export default () => {
                 </ActivityCard>
 
                 <ActivityCard className="activitycard"
-                    imgLink="/images/ieee.png"
-                    title="IEEE UC San Diego Branch"
-                    role="Competitor and Quarterly Projects Mentor"
-                    date="2019.09 - 2020.3">
+                              imgLink="/images/ieee.png"
+                              title="IEEE UC San Diego Branch"
+                              role="Competitor and Quarterly Projects Mentor"
+                              date="2019.09 - 2020.3">
                     <p className="body-text">
                         I competed in the Quarterly Projects program, where teams of 3-4 are given
                         a small budget and 8 weeks to design and build a marketable product.
@@ -98,10 +139,10 @@ export default () => {
                 </ActivityCard>
 
                 <ActivityCard className="activitycard"
-                    imgLink="/images/staylinked.png"
-                    title="StayLinked Corporation"
-                    role="Web Development Intern"
-                    date="2016.08">
+                              imgLink="/images/staylinked.png"
+                              title="StayLinked Corporation"
+                              role="Web Development Intern"
+                              date="2016.08">
                     <p className="body-text">
                         In high school, I had the opportunity to intern at StayLinked, which specializes in
                         terminal emulation. I was part of a project that involved creating a web application
@@ -125,17 +166,17 @@ export default () => {
 
             <div className="projectsummary-container">
                 <ProjectSummary imgLink="/images/stakk.png"
-                    title="Stakk"
-                    text="A full-stack web application for creating and finding study groups"
-                    tech="Firebase, Express, React, Node.js" />
+                                title="Stakk"
+                                text="A full-stack web application for creating and finding study groups"
+                                tech="Firebase, Express, React, Node.js" />
                 <ProjectSummary imgLink="/images/r3.png"
-                    title="R3"
-                    text="A 3D graphing calculator for the TI-84 Plus CE"
-                    tech="C programming language" />
+                                title="R3"
+                                text="A 3D graphing calculator for the TI-84 Plus CE"
+                                tech="C programming language" />
                 <ProjectSummary imgLink="/images/webwaste.png"
-                    title="WebWaste"
-                    text="A Chrome extension that tracks the carbon footprint of your internet activity"
-                    tech="HTML, CSS, JavaScript, jQuery" />
+                                title="WebWaste"
+                                text="A Chrome extension that tracks the carbon footprint of your internet activity"
+                                tech="HTML, CSS, JavaScript, jQuery" />
             </div>
 
             <style jsx>{`
@@ -180,14 +221,31 @@ export default () => {
                     margin-bottom: 48px;
                 }
 
+                .intro-header {
+                    font-family: 'Oswald', sans-serif;
+                    font-weight: 400;
+                    font-size: 48px;
+
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+
+                .intro .fancy-rectangle {
+                    margin: 0;
+                }
+
+                .flex-horizontal {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                }
+
                 .subheader {
                     display: flex;
                     margin: auto;
                     width: 100%;
                     height: 340px;
-
                 }
-
 
                 .subheader-text {
                     margin: auto;

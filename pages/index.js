@@ -53,10 +53,12 @@ export default () => {
                                 developer.
                             </h1>
                             <Typist.Backspace count={10} delay={1500}/>
+                            <Typist.Delay ms={1000}/>
                             <h1 className="intro-header">
                                 designer.
                             </h1>
                             <Typist.Backspace count={9} delay={1500}/>
+                            <Typist.Delay ms={1000}/>
                             <h1 className="intro-header">
                                 pursuer of knowledge.
                             </h1>

@@ -3,6 +3,7 @@ import React from 'react';
 import Layout from '../components/Layout';
 import SquareFrame from '../components/SquareFrame';
 import ActivityCard from '../components/ActivityCard';
+import ProjectSummary from '../components/ProjectSummary';
 
 /**
  * Home page of website
@@ -17,16 +18,31 @@ export default () => {
                 </p>
             </div>
             <div className="square-frame-container">
-                <SquareFrame imgLink="/images/title_thumbnail_1.jpg" />
-                <SquareFrame imgLink="/images/title_thumbnail_2.jpg" />
-                <SquareFrame imgLink="/images/title_thumbnail_3.jpg" />
+                <SquareFrame imgLink="/images/title_thumbnail_1.jpg" margin="12px" />
+                <SquareFrame imgLink="/images/title_thumbnail_2.jpg" margin="12px" />
+                <SquareFrame imgLink="/images/title_thumbnail_3.jpg" margin="12px" />
             </div>
 
-            <p className="body-text intro">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vehicula nulla id egestas interdum. Sed vel ipsum blandit, fringilla lectus ac, aliquam tortor. Integer rutrum est vitae nisi dignissim, at porttitor sem mattis. Nullam at suscipit quam, et molestie felis. Nam eu consectetur magna, eget ornare erat. Curabitur eget efficitur purus. Praesent nec bibendum orci. Vestibulum commodo purus vitae nisl lobortis, eget convallis purus sodales. Vivamus sed neque lectus.
-
-                Sed commodo lacus eget consequat gravida. Phasellus porttitor scelerisque mauris. Quisque et congue arcu, nec vulputate nunc. Vivamus ante tortor, tempor eu nunc et, viverra accumsan mauris. Phasellus velit nisl, vulputate eget arcu nec, ultrices tincidunt nibh. Suspendisse eget quam ultricies, facilisis ex a, euismod dui. Vestibulum diam lectus, ultricies sed tempus non, laoreet ut augue. Pellentesque rhoncus gravida metus, nec vulputate sem. Nunc non elementum urna. Donec cursus libero id laoreet semper. Integer condimentum mauris placerat turpis euismod, quis pellentesque leo sagittis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla eget leo sit amet augue cursus cursus.
-            </p>
+            <div className="intro">
+                <p className="body-text">
+                    Hello and welcome to my website! I'm Garrett, a UCSD 
+                    student majoring in Computer Science. I am a developer of 
+                    various things, and I've worked on a wide variety of 
+                    projects in the past, including Android development, FRC 
+                    control systems, and TI calculators. Programming is 
+                    something I'm passionate about, and I just love coding and 
+                    learning whatever I can.
+                </p>
+                <p className="body-text">
+                    This website is just a personal project for me to learn web 
+                    development and a place for me to nerd out and talk about 
+                    my ongoing projects. It also serves as a hub so that anyone 
+                    can look through my independent projects in one place, and 
+                    possibly a future portfolio/resume if I want a job or 
+                    something. Stuff is still under construction around here, 
+                    but feel free to have a look around!
+                </p>
+            </div>
 
             <div className="subheader" id="activities">
                 <h1 className="subheader-text">
@@ -40,22 +56,59 @@ export default () => {
 
             <div className="activitycard-container">
                 <ActivityCard className="activitycard"
-                              imgLink="/images/acm.png"
-                              title="ACM @ UC San Diego"
-                              role="Technical Event Director"
-                              date="2019.11 - now">
+                    imgLink="/images/bentley.png"
+                    title="Bentley Systems"
+                    role="Incoming Software Development Intern"
+                    date="2020.6 - 2020.9">
                     <p className="body-text">
-                        Lorem ipsum dolor sit amet
+                        Recently, I was accepted into Bentley Systems' summer internship
+                        program! I excited to see where this opportunity has in store for
+                        me in the future.
                     </p>
                 </ActivityCard>
 
                 <ActivityCard className="activitycard"
-                              imgLink="/images/ieee.png"
-                              title="IEEE UC San Diego Branch"
-                              role="Quarterly Projects Mentor"
-                              date="2019.09 - 2020.3">
+                    imgLink="/images/acm.png"
+                    title="ACM @ UC San Diego "
+                    role="Technical Event Director"
+                    date="2019.11 - now">
                     <p className="body-text">
-                        Lorem ipsum dolor sit amet
+                        I taught technical workshops about
+                        Firebase and Git/Unix, volunteered to help during other technical
+                        workshops, and even created a workshop about JSFuck!
+
+                        ACM very quickly became my new home in college. I got to
+                        work with like-minded people who were motivated an passionate
+                        about the same things I was.
+                    </p>
+                </ActivityCard>
+
+                <ActivityCard className="activitycard"
+                    imgLink="/images/ieee.png"
+                    title="IEEE UC San Diego Branch"
+                    role="Competitor and Quarterly Projects Mentor"
+                    date="2019.09 - 2020.3">
+                    <p className="body-text">
+                        I competed in the Quarterly Projects program, where teams of 3-4 are given
+                        a small budget and 8 weeks to design and build a marketable product.
+                        I worked on software and hardware projects such as a heart-rate
+                        sensing glove and an XY plotter device. After competing for two quarters,
+                        I switched to mentoring other teams in the program.
+                    </p>
+                </ActivityCard>
+
+                <ActivityCard className="activitycard"
+                    imgLink="/images/staylinked.png"
+                    title="StayLinked Corporation"
+                    role="Web Development Intern"
+                    date="2016.08">
+                    <p className="body-text">
+                        In high school, I had the opportunity to intern at StayLinked, which specializes in
+                        terminal emulation. I was part of a project that involved creating a web application
+                        to customize toolbars for the company software, which is used by over 250 corporate
+                        clients. Previously, customization was done with manually editing a config file, but
+                        we created a GUI that allowed users to simply drag and drop toolbar items and generate
+                        the config file automatically.
                     </p>
                 </ActivityCard>
             </div>
@@ -70,6 +123,20 @@ export default () => {
                 </h1>
             </div>
 
+            <div className="projectsummary-container">
+                <ProjectSummary imgLink="/images/stakk.png"
+                    title="Stakk"
+                    text="A full-stack web application for creating and finding study groups"
+                    tech="Firebase, Express, React, Node.js" />
+                <ProjectSummary imgLink="/images/r3.png"
+                    title="R3"
+                    text="A 3D graphing calculator for the TI-84 Plus CE"
+                    tech="C programming language" />
+                <ProjectSummary imgLink="/images/webwaste.png"
+                    title="WebWaste"
+                    text="A Chrome extension that tracks the carbon footprint of your internet activity"
+                    tech="HTML, CSS, JavaScript, jQuery" />
+            </div>
 
             <style jsx>{`
                 .header {
@@ -152,6 +219,13 @@ export default () => {
                     background: url("/images/subheader_2.png");
                     background-size: cover;
                     background-position: center;
+                }
+
+                .projectsummary-container {
+                    margin: auto;
+                    margin-top: 48px;
+                    display: flex;
+                    justify-content: center;
                 }
 
             `}

@@ -36,14 +36,14 @@ export default (props) => {
 
                 .icon {
                     object-fit: cover;
-                    width: 240px;
-                    height: 240px;
+                    width: 200px;
+                    height: 200px;
                     
-                    margin: 16px;
+                    margin: 28px;
                 }
 
                 .info {
-                    margin: 16px;
+                    margin: 28px;
                 }
 
                 .role-date {

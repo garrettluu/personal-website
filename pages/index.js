@@ -7,6 +7,7 @@ import SquareFrame from '../components/SquareFrame';
 import ActivityCard from '../components/ActivityCard';
 import ProjectSummary from '../components/ProjectSummary';
 import TypistLoop from "../components/TypistLoop";
+import BlogCard from "../components/BlogCard";
 
 /**
  * Home page of website
@@ -162,6 +163,48 @@ export default () => {
                                 tech="HTML, CSS, JavaScript, jQuery" />
             </div>
 
+            <div className="subheader" id="blogs">
+                <h1 className="subheader-text">
+                    What I'm thinking about
+                    <div className="fancy-rectangle"></div>
+                    <h2 className="subheader-caption">
+                        My most recent blog entries.
+                    </h2>
+                </h1>
+            </div>
+
+            <div>
+                <BlogCard title="Why Am I Studying CS?"
+                          date="2020.2.19">
+                    <p className="body-text">
+                        Lorem ipsum
+                    </p>
+                </BlogCard>
+                <BlogCard title="Why Am I Studying CS?"
+                          date="2020.2.19">
+                    <p className="body-text">
+                        Lorem ipsum
+                    </p>
+                </BlogCard>
+            </div>
+
+            <h1 className="subheader-text subheader-black">
+                Say Hello
+                <div className="fancy-rectangle"/>
+            </h1>
+
+            <div className="social-container">
+                <a href="https://www.facebook.com/garrettluu/">
+                    <img className="social-icon" src="/images/facebook.png"/>
+                </a>
+                <a href="https://www.linkedin.com/in/garrettluu/">
+                    <img className="social-icon" src="/images/linkedin.png"/>
+                </a>
+                <a href="https://github.com/garrettluu">
+                    <img className="social-icon" src="/images/github.png"/>
+                </a>
+            </div>
+
             <style jsx>{`
                 .header {
                     display: flex;
@@ -239,6 +282,10 @@ export default () => {
                     font-size: 36px;
                     color: white;
                 }
+                
+                .subheader-black {
+                    color: black;
+                }
 
                 .subheader-caption {
                     margin: auto;
@@ -265,10 +312,30 @@ export default () => {
                 .projectsummary-container {
                     margin: auto;
                     margin-top: 48px;
+                    margin-bottom: 48px;
                     display: flex;
                     justify-content: center;
                 }
+                
+                #blogs {
+                    background: url("/images/subheader_3.png");
+                    background-size: cover;
+                    background-position: center;
+                }
 
+                .social-container {
+                    display: flex;
+                    justify-content: center;
+
+                    margin-top: 48px;
+                }
+
+                .social-icon {
+                    width: 128px;
+                    height: 128px;
+
+                    margin: 24px;
+                }
             `}
             </style>
         </Layout>

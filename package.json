@@ -14,8 +14,10 @@
     "express": "~4.16.1",
     "morgan": "~1.9.1",
     "next": "^9.3.1",
+    "next-images": "^1.4.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-scroll-parallax": "^2.3.2",
     "react-typist": "^2.0.5"
   },
   "devDependencies": {

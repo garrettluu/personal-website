@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import Typist from 'react-typist';
-import Emoji from 'a11y-react-emoji';
+import {Parallax} from 'react-scroll-parallax';
 
 import Layout from '../components/Layout';
 import SquareFrame from '../components/SquareFrame';
@@ -13,19 +12,23 @@ import BlogCard from "../components/BlogCard";
  * Home page of website
  */
 export default () => {
-    const [typing, setTyping] = useState(true);
 
-    const doneTyping = () => {
-        setTyping(false);
-    };
+    const [offset, setOffset] = useState(0);
 
     useEffect(() => {
-        setTyping(true);
-    }, [typing]);
+        window.addEventListener('scroll', parallaxScroll);
+
+        return () => {window.removeEventListener('scroll', parallaxScroll);};
+    });
+
+    const parallaxScroll = () => {
+        setOffset(window.pageYOffset * .5);
+    }
+
 
     return (
         <Layout>
-            <div className="header">
+            <div className="header" style={{backgroundPositionY: offset}}>
                 <p className="header-text">
                     Garrett Luu
                     <div className="fancy-rectangle"></div>
@@ -70,6 +73,7 @@ export default () => {
             </div>
 
             <div className="subheader" id="activities">
+                {/* style={{backgroundPositionY: offset}}> */}
                 <h1 className="subheader-text">
                     What I've been up to
                     <div className="fancy-rectangle"></div>
@@ -139,6 +143,7 @@ export default () => {
             </div>
 
             <div className="subheader" id="projects">
+                {/* style={{backgroundPositionY: offset}}> */}
                 <h1 className="subheader-text">
                     I love to tinker
                     <div className="fancy-rectangle"></div>
@@ -164,6 +169,7 @@ export default () => {
             </div>
 
             <div className="subheader" id="blogs">
+                {/* // style={{backgroundPositionY: offset}}> */}
                 <h1 className="subheader-text">
                     What I'm thinking about
                     <div className="fancy-rectangle"></div>
@@ -212,10 +218,8 @@ export default () => {
                     width: 100%;
                     height: 512px;
 
-
                     background: url("/images/titlebg.jpg") no-repeat;
                     background-size: cover;
-                    background-position: center;
                 }
 
                 .header-text {
@@ -271,6 +275,7 @@ export default () => {
                     margin: auto;
                     width: 100%;
                     height: 340px;
+
                 }
 
                 .subheader-text {

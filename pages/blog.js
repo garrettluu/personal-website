@@ -5,34 +5,34 @@ import BlogCard from "../components/BlogCard";
 
 export default () => {
     return (
-        <Layout>
-            <div className="header">
-                <p className="header-text">
-                    Blog
-                    <div className="fancy-rectangle"></div>
-                </p>
-            </div>
-            <div>
-                <BlogCard title="Why Am I Studying CS?"
-                          date="2020.2.19">
-                    <p className="body-text">
-                        Lorem ipsum
+            <Layout>
+                <div className="header">
+                    <p className="header-text">
+                        Blog
+                <div className="fancy-rectangle"></div>
                     </p>
-                </BlogCard>
-                <BlogCard title="Why Am I Studying CS?"
-                          date="2020.2.19">
-                    <p className="body-text">
-                        Lorem ipsum
+                </div>
+
+                <div>
+                    <BlogCard title="Why Am I Studying CS?"
+                        date="2020.2.19">
+                        <p className="body-text">
+                            Lorem ipsum
                     </p>
-                </BlogCard>
-            </div>
-            <style jsx>{`
+                    </BlogCard>
+                    <BlogCard title="Why Am I Studying CS?"
+                        date="2020.2.19">
+                        <p className="body-text">
+                            Lorem ipsum
+                    </p>
+                    </BlogCard>
+                </div>
+                <style jsx>{`
                 .header {
                     display: flex;
                     margin: auto;
                     width: 100%;
                     height: 512px;
-
 
                     background: url("/images/titlebg.jpg") no-repeat;
                     background-size: cover;
@@ -48,7 +48,7 @@ export default () => {
                     color: white;
                 }
             `}
-            </style>
-        </Layout>
+                </style>
+            </Layout>
     );
 };

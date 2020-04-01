@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import {Parallax} from 'react-scroll-parallax';
+import React, {useState, useEffect, Children} from 'react';
 
 import Layout from '../components/Layout';
 import SquareFrame from '../components/SquareFrame';
@@ -7,33 +6,23 @@ import ActivityCard from '../components/ActivityCard';
 import ProjectSummary from '../components/ProjectSummary';
 import TypistLoop from "../components/TypistLoop";
 import BlogCard from "../components/BlogCard";
+import Parallax from "../components/Parallax";
 
 /**
  * Home page of website
  */
 export default () => {
-
-    const [offset, setOffset] = useState(0);
-
-    useEffect(() => {
-        window.addEventListener('scroll', parallaxScroll);
-
-        return () => {window.removeEventListener('scroll', parallaxScroll);};
-    });
-
-    const parallaxScroll = () => {
-        setOffset(window.pageYOffset * .5);
-    }
-
-
     return (
         <Layout>
-            <div className="header" style={{backgroundPositionY: offset}}>
-                <p className="header-text">
-                    Garrett Luu
-                    <div className="fancy-rectangle"></div>
-                </p>
-            </div>
+            <Parallax scrollFactor={0.5} scrollOffset={0}>
+                <div className="header">
+                    <p className="header-text">
+                        Garrett Luu
+                        <div className="fancy-rectangle"></div>
+                    </p>
+                </div>
+            </Parallax>
+
             <div className="square-frame-container">
                 <SquareFrame imgLink="/images/title_thumbnail_1.jpg" margin="12px" />
                 <SquareFrame imgLink="/images/title_thumbnail_2.jpg" margin="12px" />
@@ -72,16 +61,18 @@ export default () => {
                 </p>
             </div>
 
-            <div className="subheader" id="activities">
-                {/* style={{backgroundPositionY: offset}}> */}
-                <h1 className="subheader-text">
-                    What I've been up to
-                    <div className="fancy-rectangle"></div>
-                    <h2 className="subheader-caption">
-                        I love to be involved in both school and work.
-                    </h2>
-                </h1>
-            </div>
+            <Parallax scrollFactor={0.5} scrollOffset={-612}>
+                <div className="subheader" id="activities">
+                    {/* style={{backgroundPositionY: offset}}> */}
+                    <h1 className="subheader-text">
+                        What I've been up to
+                        <div className="fancy-rectangle"></div>
+                        <h2 className="subheader-caption">
+                            I love to be involved in both school and work.
+                        </h2>
+                    </h1>
+                </div>
+            </Parallax>
 
             <div className="activitycard-container">
                 <ActivityCard className="activitycard"
@@ -142,16 +133,18 @@ export default () => {
                 </ActivityCard>
             </div>
 
-            <div className="subheader" id="projects">
-                {/* style={{backgroundPositionY: offset}}> */}
-                <h1 className="subheader-text">
-                    I love to tinker
-                    <div className="fancy-rectangle"></div>
-                    <h2 className="subheader-caption">
-                        Here are some of my projects.
-                    </h2>
-                </h1>
-            </div>
+            <Parallax scrollFactor={0.5} scrollOffset={-612}>
+                <div className="subheader" id="projects">
+                    {/* style={{backgroundPositionY: offset}}> */}
+                    <h1 className="subheader-text">
+                        I love to tinker
+                        <div className="fancy-rectangle"></div>
+                        <h2 className="subheader-caption">
+                            Here are some of my projects.
+                        </h2>
+                    </h1>
+                </div>
+            </Parallax>
 
             <div className="projectsummary-container">
                 <ProjectSummary imgLink="/images/stakk.png"
@@ -168,16 +161,18 @@ export default () => {
                                 tech="HTML, CSS, JavaScript, jQuery" />
             </div>
 
-            <div className="subheader" id="blogs">
-                {/* // style={{backgroundPositionY: offset}}> */}
-                <h1 className="subheader-text">
-                    What I'm thinking about
-                    <div className="fancy-rectangle"></div>
-                    <h2 className="subheader-caption">
-                        My most recent blog entries.
-                    </h2>
-                </h1>
-            </div>
+            <Parallax scrollFactor={0.5} scrollOffset={-612}>
+                <div className="subheader" id="blogs">
+                    {/* style={{backgroundPositionY: offset}}> */}
+                    <h1 className="subheader-text">
+                        What I'm thinking about
+                        <div className="fancy-rectangle"></div>
+                        <h2 className="subheader-caption">
+                            My most recent blog entries.
+                        </h2>
+                    </h1>
+                </div>
+            </Parallax>
 
             <div>
                 <BlogCard title="Why Am I Studying CS?"
@@ -325,7 +320,7 @@ export default () => {
                 #blogs {
                     background: url("/images/subheader_3.png");
                     background-size: cover;
-                    background-position: center;
+                    background-position: center 60%;
                 }
 
                 .social-container {

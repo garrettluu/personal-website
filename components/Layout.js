@@ -8,7 +8,7 @@ import Head from 'next/head';
  */
 export default ({ children, title = 'Garrett Luu' }) => {
 
-    const SCROLL_THRESHOLD = 10;
+    const SCROLL_THRESHOLD = 495;
 
     // Some state hooks to control style of navbar
     let [navButtonClass, setNavButtonClass] = useState("nav-button");
@@ -93,13 +93,13 @@ export default ({ children, title = 'Garrett Luu' }) => {
                     transition: background-color .25s ease-in;
                     padding: 24px;
                     width: 100%;
+                    z-index: 100;
                 }
 
                 .nav-opaque {
                     transition: background-color .25s ease-in;
                     background-color: tomato;
                     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-                    z-index: 100;
                 }
 
                 .nav-button {

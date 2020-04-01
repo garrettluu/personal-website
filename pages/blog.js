@@ -2,30 +2,19 @@ import React, {useState, useEffect} from 'react';
 
 import Layout from '../components/Layout';
 import BlogCard from "../components/BlogCard";
+import Parallax from '../components/Parallax';
 
 export default () => {
-    const PARALLAX_SCROLL_FACTOR = .5;
-
-    const [offset, setOffset] = useState(0);
-
-    useEffect(() => {
-        window.addEventListener('scroll', parallaxScroll);
-
-        return () => {window.removeEventListener('scroll', parallaxScroll);};
-    });
-
-    const parallaxScroll = () => {
-        setOffset(window.pageYOffset * PARALLAX_SCROLL_FACTOR);
-    }
-
     return (
             <Layout>
-                <div className="header" style={{backgroundPositionY: offset}}>
-                    <p className="header-text">
-                        Blog
-                    <div className="fancy-rectangle"></div>
-                    </p>
-                </div>
+                <Parallax scrollFactor={0.5} scrollOffset={-256}>
+                    <div className="header">
+                        <p className="header-text">
+                            Blog
+                        <div className="fancy-rectangle"></div>
+                        </p>
+                    </div>
+                </Parallax>
 
                 <div>
                     <BlogCard title="Why Am I Studying CS?"
@@ -50,7 +39,6 @@ export default () => {
 
                     background: url("/images/titlebg.jpg") no-repeat;
                     background-size: cover;
-                    background-position: center;
                 }
 
                 .header-text {

@@ -7,7 +7,7 @@ import Parallax from '../components/Parallax';
 export default () => {
     return (
             <Layout>
-                <Parallax scrollFactor={0.5} scrollOffset={}>
+                <Parallax scrollFactor={0.5} scrollOffset={0}>
                     <div className="header">
                         <p className="header-text">
                             Blog

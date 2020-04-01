@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 
 export default (props) => {
-    const PARALLAX_SCROLL_FACTOR = props.scrollFactor;
-    const PARALLAX_SCROLL_OFFSET = props.scrollOffset;
+    const PARALLAX_SCROLL_FACTOR = props.scrollFactor ?? 0;
+    const PARALLAX_SCROLL_OFFSET = props.scrollOffset ?? 0;
 
     const [offset, setOffset] = useState(PARALLAX_SCROLL_OFFSET);
 
@@ -21,6 +21,7 @@ export default (props) => {
         setOffset(window.pageYOffset * PARALLAX_SCROLL_FACTOR +     
             PARALLAX_SCROLL_OFFSET - (initialOffset * PARALLAX_SCROLL_FACTOR));
     }
+
     return (
         <div>
             {React.cloneElement(props.children, {

@@ -14,11 +14,11 @@ import Parallax from "../components/Parallax";
 export default () => {
     return (
         <Layout>
-            <Parallax scrollFactor={0.5} scrollOffset={-256}>
+            <Parallax scrollFactor={0.5} scrollOffset={0}>
                 <div className="header">
                     <p className="header-text">
                         Garrett Luu
-                        <div className="fancy-rectangle"></div>
+                        <div className="fancy-rectangle"/>
                     </p>
                 </div>
             </Parallax>
@@ -40,7 +40,7 @@ export default () => {
                         "pursuer of knowledge.",
                     ]}/>
                 </div>
-                <div className="fancy-rectangle"></div>
+                <div className="fancy-rectangle"/>
                 <p className="body-text">
                     Hello and welcome to my website! I'm Garrett, a UCSD
                     student majoring in Computer Science. I am a developer of
@@ -61,7 +61,7 @@ export default () => {
                 </p>
             </div>
 
-            <Parallax scrollFactor={0.5} scrollOffset={0}>
+            <Parallax scrollFactor={0.5} scrollOffset={-150}>
                 <div className="subheader" id="activities">
                     {/* style={{backgroundPositionY: offset}}> */}
                     <h1 className="subheader-text">
@@ -133,7 +133,7 @@ export default () => {
                 </ActivityCard>
             </div>
 
-            <Parallax scrollFactor={0.5} scrollOffset={0}>
+            <Parallax scrollFactor={0.5} scrollOffset={-150}>
                 <div className="subheader" id="projects">
                     {/* style={{backgroundPositionY: offset}}> */}
                     <h1 className="subheader-text">
@@ -161,7 +161,7 @@ export default () => {
                                 tech="HTML, CSS, JavaScript, jQuery" />
             </div>
 
-            <Parallax scrollFactor={0.5} scrollOffset={0}>
+            <Parallax scrollFactor={0.5} scrollOffset={-150}>
                 <div className="subheader" id="blogs">
                     {/* style={{backgroundPositionY: offset}}> */}
                     <h1 className="subheader-text">

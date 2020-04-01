@@ -1,15 +1,29 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 import Layout from '../components/Layout';
 import BlogCard from "../components/BlogCard";
 
 export default () => {
+    const PARALLAX_SCROLL_FACTOR = .5;
+
+    const [offset, setOffset] = useState(0);
+
+    useEffect(() => {
+        window.addEventListener('scroll', parallaxScroll);
+
+        return () => {window.removeEventListener('scroll', parallaxScroll);};
+    });
+
+    const parallaxScroll = () => {
+        setOffset(window.pageYOffset * PARALLAX_SCROLL_FACTOR);
+    }
+
     return (
             <Layout>
-                <div className="header">
+                <div className="header" style={{backgroundPositionY: offset}}>
                     <p className="header-text">
                         Blog
-                <div className="fancy-rectangle"></div>
+                    <div className="fancy-rectangle"></div>
                     </p>
                 </div>
 

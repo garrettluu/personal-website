@@ -14,7 +14,7 @@ import Parallax from "../components/Parallax";
 export default () => {
     return (
         <Layout>
-            <Parallax scrollFactor={0.5} scrollOffset={0}>
+            <Parallax scrollFactor={0.5} scrollOffset={-256}>
                 <div className="header">
                     <p className="header-text">
                         Garrett Luu
@@ -61,7 +61,7 @@ export default () => {
                 </p>
             </div>
 
-            <Parallax scrollFactor={0.5} scrollOffset={-612}>
+            <Parallax scrollFactor={0.5} scrollOffset={0}>
                 <div className="subheader" id="activities">
                     {/* style={{backgroundPositionY: offset}}> */}
                     <h1 className="subheader-text">
@@ -133,7 +133,7 @@ export default () => {
                 </ActivityCard>
             </div>
 
-            <Parallax scrollFactor={0.5} scrollOffset={-612}>
+            <Parallax scrollFactor={0.5} scrollOffset={0}>
                 <div className="subheader" id="projects">
                     {/* style={{backgroundPositionY: offset}}> */}
                     <h1 className="subheader-text">
@@ -161,7 +161,7 @@ export default () => {
                                 tech="HTML, CSS, JavaScript, jQuery" />
             </div>
 
-            <Parallax scrollFactor={0.5} scrollOffset={-612}>
+            <Parallax scrollFactor={0.5} scrollOffset={0}>
                 <div className="subheader" id="blogs">
                     {/* style={{backgroundPositionY: offset}}> */}
                     <h1 className="subheader-text">

@@ -20,11 +20,11 @@ export default ({ children, title = 'Garrett Luu' }) => {
     let onScroll = () => {
         if (window.scrollY >= SCROLL_THRESHOLD) {
             // Make the navbar opque and nav buttons to use black text
-            setNavButtonClass("nav-button nav-button-dark");
+            // setNavButtonClass("nav-button nav-button-dark");
             setNavClass("nav-bar nav-opaque");
         } else {
             // Make navbar transparent with white text
-            setNavButtonClass("nav-button");
+            // setNavButtonClass("nav-button");
             setNavClass("nav-bar");
         }
     };
@@ -47,6 +47,7 @@ export default ({ children, title = 'Garrett Luu' }) => {
                     content="initial-scale=1.0, width=device-width"
                     key="viewport" />
                 <link href="https://fonts.googleapis.com/css?family=Oswald:400,500,700|Roboto:300,300i,500,500i&display=swap" rel="stylesheet"></link>
+                <link href="/images/favicon.png" rel="icon"></link>
             </Head>
             <nav className={navClass}>
                 <Link href="/">
@@ -96,7 +97,7 @@ export default ({ children, title = 'Garrett Luu' }) => {
 
                 .nav-opaque {
                     transition: background-color .25s ease-in;
-                    background-color: white;
+                    background-color: tomato;
                     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
                     z-index: 100;
                 }

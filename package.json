@@ -8,13 +8,16 @@
     "build": "next build"
   },
   "dependencies": {
+    "a11y-react-emoji": "^1.1.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "morgan": "~1.9.1",
     "next": "^9.3.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-scroll-parallax": "^2.3.2",
+    "react-typist": "^2.0.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"

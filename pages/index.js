@@ -1,17 +1,34 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import {Parallax} from 'react-scroll-parallax';
 
 import Layout from '../components/Layout';
 import SquareFrame from '../components/SquareFrame';
 import ActivityCard from '../components/ActivityCard';
 import ProjectSummary from '../components/ProjectSummary';
+import TypistLoop from "../components/TypistLoop";
+import BlogCard from "../components/BlogCard";
 
 /**
  * Home page of website
  */
 export default () => {
+
+    const [offset, setOffset] = useState(0);
+
+    useEffect(() => {
+        window.addEventListener('scroll', parallaxScroll);
+
+        return () => {window.removeEventListener('scroll', parallaxScroll);};
+    });
+
+    const parallaxScroll = () => {
+        setOffset(window.pageYOffset * .5);
+    }
+
+
     return (
         <Layout>
-            <div className="header">
+            <div className="header" style={{backgroundPositionY: offset}}>
                 <p className="header-text">
                     Garrett Luu
                     <div className="fancy-rectangle"></div>
@@ -24,27 +41,39 @@ export default () => {
             </div>
 
             <div className="intro">
+                <div className="flex-horizontal">
+                    <h1 className="intro-header">
+                        I am a&nbsp;
+                    </h1>
+                    <TypistLoop words={[
+                        "developer.",
+                        "mathematician.",
+                        "pursuer of knowledge.",
+                    ]}/>
+                </div>
+                <div className="fancy-rectangle"></div>
                 <p className="body-text">
-                    Hello and welcome to my website! I'm Garrett, a UCSD 
-                    student majoring in Computer Science. I am a developer of 
-                    various things, and I've worked on a wide variety of 
-                    projects in the past, including Android development, FRC 
-                    control systems, and TI calculators. Programming is 
-                    something I'm passionate about, and I just love coding and 
+                    Hello and welcome to my website! I'm Garrett, a UCSD
+                    student majoring in Computer Science. I am a developer of
+                    various things, and I've worked on a wide variety of
+                    projects in the past, including Android development, FRC
+                    control systems, and TI calculators. Programming is
+                    something I'm passionate about, and I just love coding and
                     learning whatever I can.
                 </p>
                 <p className="body-text">
-                    This website is just a personal project for me to learn web 
-                    development and a place for me to nerd out and talk about 
-                    my ongoing projects. It also serves as a hub so that anyone 
-                    can look through my independent projects in one place, and 
-                    possibly a future portfolio/resume if I want a job or 
-                    something. Stuff is still under construction around here, 
+                    This website is just a personal project for me to learn web
+                    development and a place for me to nerd out and talk about
+                    my ongoing projects. It also serves as a hub so that anyone
+                    can look through my independent projects in one place, and
+                    possibly a future portfolio/resume if I want a job or
+                    something. Stuff is still under construction around here,
                     but feel free to have a look around!
                 </p>
             </div>
 
             <div className="subheader" id="activities">
+                {/* style={{backgroundPositionY: offset}}> */}
                 <h1 className="subheader-text">
                     What I've been up to
                     <div className="fancy-rectangle"></div>
@@ -56,10 +85,10 @@ export default () => {
 
             <div className="activitycard-container">
                 <ActivityCard className="activitycard"
-                    imgLink="/images/bentley.png"
-                    title="Bentley Systems"
-                    role="Incoming Software Development Intern"
-                    date="2020.6 - 2020.9">
+                              imgLink="/images/bentley.png"
+                              title="Bentley Systems"
+                              role="Incoming Software Development Intern"
+                              date="2020.6 - 2020.9">
                     <p className="body-text">
                         Recently, I was accepted into Bentley Systems' summer internship
                         program! I excited to see where this opportunity has in store for
@@ -68,10 +97,10 @@ export default () => {
                 </ActivityCard>
 
                 <ActivityCard className="activitycard"
-                    imgLink="/images/acm.png"
-                    title="ACM @ UC San Diego "
-                    role="Technical Event Director"
-                    date="2019.11 - now">
+                              imgLink="/images/acm.png"
+                              title="ACM @ UC San Diego🔷"
+                              role="Technical Event Director"
+                              date="2019.11 - now">
                     <p className="body-text">
                         I taught technical workshops about
                         Firebase and Git/Unix, volunteered to help during other technical
@@ -84,10 +113,10 @@ export default () => {
                 </ActivityCard>
 
                 <ActivityCard className="activitycard"
-                    imgLink="/images/ieee.png"
-                    title="IEEE UC San Diego Branch"
-                    role="Competitor and Quarterly Projects Mentor"
-                    date="2019.09 - 2020.3">
+                              imgLink="/images/ieee.png"
+                              title="IEEE UC San Diego Branch"
+                              role="Competitor and Quarterly Projects Mentor"
+                              date="2019.09 - 2020.3">
                     <p className="body-text">
                         I competed in the Quarterly Projects program, where teams of 3-4 are given
                         a small budget and 8 weeks to design and build a marketable product.
@@ -98,10 +127,10 @@ export default () => {
                 </ActivityCard>
 
                 <ActivityCard className="activitycard"
-                    imgLink="/images/staylinked.png"
-                    title="StayLinked Corporation"
-                    role="Web Development Intern"
-                    date="2016.08">
+                              imgLink="/images/staylinked.png"
+                              title="StayLinked Corporation"
+                              role="Web Development Intern"
+                              date="2016.08">
                     <p className="body-text">
                         In high school, I had the opportunity to intern at StayLinked, which specializes in
                         terminal emulation. I was part of a project that involved creating a web application
@@ -114,6 +143,7 @@ export default () => {
             </div>
 
             <div className="subheader" id="projects">
+                {/* style={{backgroundPositionY: offset}}> */}
                 <h1 className="subheader-text">
                     I love to tinker
                     <div className="fancy-rectangle"></div>
@@ -125,17 +155,60 @@ export default () => {
 
             <div className="projectsummary-container">
                 <ProjectSummary imgLink="/images/stakk.png"
-                    title="Stakk"
-                    text="A full-stack web application for creating and finding study groups"
-                    tech="Firebase, Express, React, Node.js" />
+                                title="Stakk"
+                                text="A full-stack web application for creating and finding study groups"
+                                tech="Firebase, Express, React, Node.js" />
                 <ProjectSummary imgLink="/images/r3.png"
-                    title="R3"
-                    text="A 3D graphing calculator for the TI-84 Plus CE"
-                    tech="C programming language" />
+                                title="R3"
+                                text="A 3D graphing calculator for the TI-84 Plus CE"
+                                tech="C programming language" />
                 <ProjectSummary imgLink="/images/webwaste.png"
-                    title="WebWaste"
-                    text="A Chrome extension that tracks the carbon footprint of your internet activity"
-                    tech="HTML, CSS, JavaScript, jQuery" />
+                                title="WebWaste"
+                                text="A Chrome extension that tracks the carbon footprint of your internet activity"
+                                tech="HTML, CSS, JavaScript, jQuery" />
+            </div>
+
+            <div className="subheader" id="blogs">
+                {/* // style={{backgroundPositionY: offset}}> */}
+                <h1 className="subheader-text">
+                    What I'm thinking about
+                    <div className="fancy-rectangle"></div>
+                    <h2 className="subheader-caption">
+                        My most recent blog entries.
+                    </h2>
+                </h1>
+            </div>
+
+            <div>
+                <BlogCard title="Why Am I Studying CS?"
+                          date="2020.2.19">
+                    <p className="body-text">
+                        Lorem ipsum
+                    </p>
+                </BlogCard>
+                <BlogCard title="Why Am I Studying CS?"
+                          date="2020.2.19">
+                    <p className="body-text">
+                        Lorem ipsum
+                    </p>
+                </BlogCard>
+            </div>
+
+            <h1 className="subheader-text subheader-black">
+                Say Hello
+                <div className="fancy-rectangle"/>
+            </h1>
+
+            <div className="social-container">
+                <a href="https://www.facebook.com/garrettluu/">
+                    <img className="social-icon" src="/images/facebook.png"/>
+                </a>
+                <a href="https://www.linkedin.com/in/garrettluu/">
+                    <img className="social-icon" src="/images/linkedin.png"/>
+                </a>
+                <a href="https://github.com/garrettluu">
+                    <img className="social-icon" src="/images/github.png"/>
+                </a>
             </div>
 
             <style jsx>{`
@@ -145,10 +218,8 @@ export default () => {
                     width: 100%;
                     height: 512px;
 
-
                     background: url("/images/titlebg.jpg") no-repeat;
                     background-size: cover;
-                    background-position: center;
                 }
 
                 .header-text {
@@ -180,6 +251,25 @@ export default () => {
                     margin-bottom: 48px;
                 }
 
+                .intro-header {
+                    font-family: 'Oswald', sans-serif;
+                    font-weight: 400;
+                    font-size: 48px;
+
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+
+                .intro .fancy-rectangle {
+                    margin: 0;
+                }
+
+                .flex-horizontal {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                }
+
                 .subheader {
                     display: flex;
                     margin: auto;
@@ -187,7 +277,6 @@ export default () => {
                     height: 340px;
 
                 }
-
 
                 .subheader-text {
                     margin: auto;
@@ -197,6 +286,10 @@ export default () => {
                     font-weight: 700;
                     font-size: 36px;
                     color: white;
+                }
+                
+                .subheader-black {
+                    color: black;
                 }
 
                 .subheader-caption {
@@ -224,10 +317,30 @@ export default () => {
                 .projectsummary-container {
                     margin: auto;
                     margin-top: 48px;
+                    margin-bottom: 48px;
                     display: flex;
                     justify-content: center;
                 }
+                
+                #blogs {
+                    background: url("/images/subheader_3.png");
+                    background-size: cover;
+                    background-position: center;
+                }
 
+                .social-container {
+                    display: flex;
+                    justify-content: center;
+
+                    margin-top: 48px;
+                }
+
+                .social-icon {
+                    width: 128px;
+                    height: 128px;
+
+                    margin: 24px;
+                }
             `}
             </style>
         </Layout>

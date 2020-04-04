@@ -1,11 +1,13 @@
 module.exports = function (app) {
-  var express = require('express');
-  var router = express.Router();
-  let handle = app.getRequestHandler();
+  const express = require('express');
+  const router = express.Router();
+  const handle = app.getRequestHandler();
+
 
   /* Handle requests with Next.js */
-  router.get('*', function (req, res) {
-    return handle(req, res);
+  router.get('/', (req, res) => {
+    // return handle(req, res);
+    return app.render(req, res, '/index');
   });
 
   return router;

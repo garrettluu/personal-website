@@ -7,11 +7,56 @@ import ProjectSummary from '../components/ProjectSummary';
 import TypistLoop from "../components/TypistLoop";
 import BlogCard from "../components/BlogCard";
 import Parallax from "../components/Parallax";
+import axios from 'axios';
 
+
+export async function getStaticProps() {
+    const response = await axios.get("https://dev.to/api/articles/me/published", {
+        headers: {
+            "api-key" : "2MaehWGvVm8Fw5vX7fKm1pm1"
+        }
+    });
+
+    const entries = response.data;
+
+    return {
+        props: {entries}
+    }
+}
 /**
  * Home page of website
  */
-export default () => {
+export default (props) => {
+    const [entries, setEntries] = useState([]);
+
+    const renderFirst2Entries = async () => {
+        let result = [];
+
+        console.log(props.entries);
+
+        for (let i = 0; i < 1; i++) {
+            let entry = props.entries[i]
+            result.push((
+                <BlogCard title={entry.title}
+                    date={entry.published_at}
+                    imgLink={entry.image}>
+                    <p className="body-text">
+                        {entry.description}
+                    </p>
+                </BlogCard>
+            ));
+        }
+
+        setEntries(result);
+    }
+
+    useEffect(() => {
+        console.log(entries);
+        if (entries.length === 0) {
+            renderFirst2Entries();
+        }
+    });
+
     return (
         <Layout>
             <Parallax scrollFactor={0.5} scrollOffset={0}>
@@ -175,7 +220,7 @@ export default () => {
             </Parallax>
 
             <div>
-                <BlogCard title="Why Am I Studying CS?"
+                {/* <BlogCard title="Why Am I Studying CS?"
                           date="2020.2.19">
                     <p className="body-text">
                         Lorem ipsum
@@ -186,7 +231,10 @@ export default () => {
                     <p className="body-text">
                         Lorem ipsum
                     </p>
-                </BlogCard>
+                </BlogCard> */}
+
+                {entries}
+
             </div>
 
             <h1 className="subheader-text subheader-black">

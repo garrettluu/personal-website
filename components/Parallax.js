@@ -11,7 +11,6 @@ export default (props) => {
 
     useEffect(() => {
         window.addEventListener('scroll', parallaxScroll);
-        console.log(childrenRef);
         initialOffset = childrenRef.current.offsetTop; 
 
         return () => {window.removeEventListener('scroll', parallaxScroll);};

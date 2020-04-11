@@ -3,18 +3,22 @@ module.exports = (app, client) => {
   const router = express.Router();
   const handle = app.getRequestHandler();
 
-  router.get('/', async (req, res) => {
-    await client.connect((err, client) => {
+  router.get('/', (req, res) => {
+    return app.render(req, res, '/blog');
+  })
+
+  router.get('/entries', (req, res) => {
       console.log("Connected to database");
 
       const db = client.db('website-data')
 
       const entries = db.collection('blog-entries');
 
-      entries.find({}, {title: true, date: true}).toArray((err, result) => {
+      entries.find().toArray((err, result) => {
+        if (err) {
+          throw err;
+        }
         res.send(result);
-        client.close();
-      });
     });
   });
 

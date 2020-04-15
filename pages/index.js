@@ -13,7 +13,7 @@ import axios from 'axios';
 export async function getStaticProps() {
     const response = await axios.get("https://dev.to/api/articles/me/published", {
         headers: {
-            "api-key" : "2MaehWGvVm8Fw5vX7fKm1pm1"
+            "api-key" : API_KEY
         }
     });
 

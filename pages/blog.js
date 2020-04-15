@@ -1,10 +1,59 @@
 import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 
 import Layout from '../components/Layout';
 import BlogCard from "../components/BlogCard";
 import Parallax from '../components/Parallax';
+import { loadGetInitialProps } from 'next/dist/next-server/lib/utils';
 
-export default () => {
+// export async function getServerSideProps(context) {
+//     const response = await axios.get('http://localhost:3000/blog/entries');
+//     console.log("Sent axios request");
+//     console.log(response.data);
+//     return {
+//         props: {entries: response.data}
+//     }
+// };
+
+export async function getStaticProps() {
+    const response = await axios.get("https://dev.to/api/articles/me/published", {
+        headers: {
+            "api-key" : "2MaehWGvVm8Fw5vX7fKm1pm1"
+        }
+    });
+
+    const entries = response.data;
+    console.log(entries);
+
+    return {
+        props: {entries}
+    }
+}
+
+export default (props) => {
+    const [entries, setEntries] = useState([]);
+
+    const renderEntries = async () => {
+        let result = props.entries.map((entry) => {
+            console.log(entry);
+            return (
+                <BlogCard title={entry.title}
+                        date={entry.published_at}>
+                    <p className="body-text">
+                        {entry.description}
+                    </p>
+                </BlogCard>
+        )});
+
+        setEntries(result);
+    }
+
+    useEffect(() => {
+        if (entries.length === 0) {
+            renderEntries();
+        }
+    });
+
     return (
             <Layout>
                 <Parallax scrollFactor={0.5} scrollOffset={0}>
@@ -17,18 +66,7 @@ export default () => {
                 </Parallax>
 
                 <div>
-                    <BlogCard title="Why Am I Studying CS?"
-                        date="2020.2.19">
-                        <p className="body-text">
-                            Lorem ipsum
-                    </p>
-                    </BlogCard>
-                    <BlogCard title="Why Am I Studying CS?"
-                        date="2020.2.19">
-                        <p className="body-text">
-                            Lorem ipsum
-                    </p>
-                    </BlogCard>
+                    {entries}
                 </div>
                 <style jsx>{`
                 .header {

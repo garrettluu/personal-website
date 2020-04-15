@@ -67,6 +67,8 @@ export default ({ children, title = 'Garrett Luu' }) => {
                 body {
                     margin: 0;
                     top: 0;
+
+                    overflow-y: scroll;
                 }
 
                 .nav-bar {

@@ -70,11 +70,10 @@ export default (props) => {
             </Parallax>
 
             <div className="square-frame-container">
-                <SquareFrame imgLink="/images/title_thumbnail_1.jpg" margin="12px" />
-                <SquareFrame imgLink="/images/title_thumbnail_2.jpg" margin="12px" />
-                <SquareFrame imgLink="/images/title_thumbnail_3.jpg" margin="12px" />
+                <SquareFrame imgLink="/images/title_thumbnail_1.jpg" />
+                <SquareFrame imgLink="/images/title_thumbnail_2.jpg" />
+                <SquareFrame imgLink="/images/title_thumbnail_3.jpg" />
             </div>
-
             <div className="intro">
                 <div className="flex-horizontal">
                     <h1 className="intro-header">
@@ -107,9 +106,8 @@ export default (props) => {
                 </p>
             </div>
 
-            <Parallax scrollFactor={0.5} scrollOffset={-150}>
+            {/* <Parallax scrollFactor={0.5} scrollOffset={-150}>
                 <div className="subheader" id="activities">
-                    {/* style={{backgroundPositionY: offset}}> */}
                     <h1 className="subheader-text">
                         What I've been up to
                         <div className="fancy-rectangle"></div>
@@ -118,9 +116,9 @@ export default (props) => {
                         </h2>
                     </h1>
                 </div>
-            </Parallax>
+            </Parallax> */}
 
-            <div className="activitycard-container">
+            {/* <div className="activitycard-container">
                 <ActivityCard className="activitycard"
                               imgLink="/images/bentley.png"
                               title="Bentley Systems"
@@ -177,11 +175,10 @@ export default (props) => {
                         the config file automatically.
                     </p>
                 </ActivityCard>
-            </div>
+            </div> */}
 
-            <Parallax scrollFactor={0.5} scrollOffset={-150}>
+            {/* <Parallax scrollFactor={0.5} scrollOffset={-150}>
                 <div className="subheader" id="projects">
-                    {/* style={{backgroundPositionY: offset}}> */}
                     <h1 className="subheader-text">
                         I love to tinker
                         <div className="fancy-rectangle"></div>
@@ -190,9 +187,9 @@ export default (props) => {
                         </h2>
                     </h1>
                 </div>
-            </Parallax>
+            </Parallax> */}
 
-            <div className="projectsummary-container">
+            {/* <div className="projectsummary-container">
                 <ProjectSummary imgLink="/images/stakk.png"
                                 title="Stakk"
                                 text="A full-stack web application for creating and finding study groups"
@@ -205,11 +202,10 @@ export default (props) => {
                                 title="WebWaste"
                                 text="A Chrome extension that tracks the carbon footprint of your internet activity"
                                 tech="HTML, CSS, JavaScript, jQuery" />
-            </div>
+            </div> */}
 
-            <Parallax scrollFactor={0.5} scrollOffset={-150}>
+            {/* <Parallax scrollFactor={0.5} scrollOffset={-150}>
                 <div className="subheader" id="blogs">
-                    {/* style={{backgroundPositionY: offset}}> */}
                     <h1 className="subheader-text">
                         What I'm thinking about
                         <div className="fancy-rectangle"></div>
@@ -218,9 +214,9 @@ export default (props) => {
                         </h2>
                     </h1>
                 </div>
-            </Parallax>
+            </Parallax> */}
 
-            <div>
+            {/* <div> */}
                 {/* <BlogCard title="Why Am I Studying CS?"
                           date="2020.2.19">
                     <p className="body-text">
@@ -234,16 +230,16 @@ export default (props) => {
                     </p>
                 </BlogCard> */}
 
-                {entries}
+                {/* {entries} */}
 
-            </div>
+            {/* </div> */}
 
-            <h1 className="subheader-text subheader-black">
+            {/* <h1 className="subheader-text subheader-black">
                 Say Hello
                 <div className="fancy-rectangle"/>
-            </h1>
+            </h1> */}
 
-            <div className="social-container">
+            {/* <div className="social-container">
                 <a href="https://www.facebook.com/garrettluu/">
                     <img className="social-icon" src="/images/facebook.png"/>
                 </a>
@@ -253,7 +249,7 @@ export default (props) => {
                 <a href="https://github.com/garrettluu">
                     <img className="social-icon" src="/images/github.png"/>
                 </a>
-            </div>
+            </div> */}
 
             <style jsx>{`
                 .header {
@@ -273,19 +269,27 @@ export default (props) => {
                     font-family: 'Oswald';
                     font-size: 72px;
                     color: white;
+
+                }
+
+                @media only screen and (max-width: 600px) {
+                    .header-text {
+                        font-size: 48px;
+                    }
                 }
 
 
                 .square-frame-container {
                     position: absolute;
                     top: 383px;
-                    width: 100%;
+                    width: 812px;
 
                     display: flex;
                     flex-direction: horizontal;
-                    justify-content: center;
+                    justify-content: space-between;
 
-                    margin: 0 auto;
+                    margin-left: calc(50% - 256px/2 - 278px);
+                    margin-right: calc(50% - 256px/2 - 278px);
                 }
 
                 .intro {
@@ -384,6 +388,25 @@ export default (props) => {
                     height: 128px;
 
                     margin: 24px;
+                }
+
+                @media only screen and (max-width: 600px) {
+                    .square-frame-container {
+                        top: calc(512px - 104px/2);
+                        width: 92%;
+                        margin-left: 4%;
+                        margin-right: 4%;
+                    }
+
+                    .intro {
+                        margin-top: 96px;
+                        margin-left: 4%;
+                        margin-right: 4%;
+                    }
+
+                    .intro-header {
+                        font-size: 30px;
+                    }
                 }
             `}
             </style>

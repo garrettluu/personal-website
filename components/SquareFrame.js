@@ -21,8 +21,6 @@ export default (props) => {
                 .frame {
                     display: flex;
 
-                    width: 256px;
-                    height: 256px;
                     margin: ${props.margin};
 
                     background-color: white;
@@ -32,11 +30,23 @@ export default (props) => {
                 }
 
                 img {
-                    margin: auto;
+                    margin: 12px;
                     width: 232px;
                     height: 232px;
 
                     object-fit:cover;
+                }
+
+                @media only screen and (max-width: 600px) {
+                    // .frame {
+                    //     margin: 4px;
+                    // }
+
+                    img {
+                        margin: 8px;
+                        width: 96px;
+                        height: 96px;
+                    }
                 }
 
                 .fade-in {

@@ -64,6 +64,7 @@ export default ({ children, title = 'Garrett Luu' }) => {
             {children}
 
             <style jsx global>{`
+
                 body {
                     margin: 0;
                     top: 0;
@@ -86,6 +87,16 @@ export default ({ children, title = 'Garrett Luu' }) => {
                 .body-text {
                     font-family: 'Roboto', sans-serif;
                     font-weight: 300;
+                }
+
+                @media only screen and (max-width: 600px) {
+                    .fancy-rectangle {
+                        width: 152px;
+                    }
+
+                    body {
+                        overflow-x: hidden;
+                    }
                 }
             `}
             </style>

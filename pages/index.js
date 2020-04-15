@@ -11,9 +11,10 @@ import axios from 'axios';
 
 
 export async function getStaticProps() {
+    require('dotenv').config();
     const response = await axios.get("https://dev.to/api/articles/me/published", {
         headers: {
-            "api-key" : API_KEY
+            "api-key" : process.env.API_KEY
         }
     });
 

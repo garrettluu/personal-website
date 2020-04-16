@@ -368,13 +368,16 @@ export default (props) => {
                 }
 
                 .projectsummary-container {
+                    width: 812px;
+
                     margin-left: calc(50% - 256px/2 - 278px);
                     margin-right: calc(50% - 256px/2 - 278px);
                     margin-top: 48px;
                     margin-bottom: 48px;
+
                     display: flex;
                     flex-direction: horizontal;
-                    justify-content: center;
+                    justify-content: space-between;
                 }
                 
                 #blogs {
@@ -421,6 +424,7 @@ export default (props) => {
                     }
 
                     .projectsummary-container {
+                        width: 92%;
                         margin-left: 4%;
                         margin-right: 4%;
 

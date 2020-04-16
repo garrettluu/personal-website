@@ -26,7 +26,6 @@ export default (props) => {
                     margin-left: 12px;
                     margin-right: 12px;
 
-                    width: 256px;
                 }
 
                 .title {

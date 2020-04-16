@@ -77,7 +77,6 @@ export default (props) => {
 
                 @media only screen and (max-width: 600px) {
                     .card {
-
                         grid-template-columns: 128px auto;
                     }
                     .icon {

@@ -204,7 +204,7 @@ export default (props) => {
                                 tech="HTML, CSS, JavaScript, jQuery" />
             </div>
 
-            {/* <Parallax scrollFactor={0.5} scrollOffset={-150}>
+            <Parallax scrollFactor={0.5} scrollOffset={-150}>
                 <div className="subheader" id="blogs">
                     <h1 className="subheader-text">
                         What I'm thinking about
@@ -214,9 +214,9 @@ export default (props) => {
                         </h2>
                     </h1>
                 </div>
-            </Parallax> */}
+            </Parallax>
 
-            {/* <div> */}
+            <div className="blogcard-container">
                 {/* <BlogCard title="Why Am I Studying CS?"
                           date="2020.2.19">
                     <p className="body-text">
@@ -230,16 +230,16 @@ export default (props) => {
                     </p>
                 </BlogCard> */}
 
-                {/* {entries} */}
+                {entries}
 
-            {/* </div> */}
+            </div>
 
-            {/* <h1 className="subheader-text subheader-black">
+            <h1 className="subheader-text subheader-black">
                 Say Hello
                 <div className="fancy-rectangle"/>
-            </h1> */}
+            </h1>
 
-            {/* <div className="social-container">
+            <div className="social-container">
                 <a href="https://www.facebook.com/garrettluu/">
                     <img className="social-icon" src="/images/facebook.png"/>
                 </a>
@@ -249,7 +249,7 @@ export default (props) => {
                 <a href="https://github.com/garrettluu">
                     <img className="social-icon" src="/images/github.png"/>
                 </a>
-            </div> */}
+            </div>
 
             <style jsx>{`
                 .header {
@@ -386,6 +386,11 @@ export default (props) => {
                     background-position: center 60%;
                 }
 
+                .blogcard-container {
+                    margin-left: calc(50% - 256px/2 - 278px);
+                    margin-right: calc(50% - 256px/2 - 278px);
+                }
+
                 .social-container {
                     display: flex;
                     justify-content: center;
@@ -429,6 +434,23 @@ export default (props) => {
                         margin-right: 4%;
 
                         flex-direction: column;
+                    }
+
+                    .blogcard-container {
+                        margin-left: 4%;
+                        margin-right: 4%;
+                    }
+
+                    .social-container {
+                        margin-left: 4%;
+                        margin-right: 4%;
+
+                        margin-top: 24px;
+                    }
+
+                    .social-icon {
+                        width: 64px;
+                        height: 64px;
                     }
                 }
             `}

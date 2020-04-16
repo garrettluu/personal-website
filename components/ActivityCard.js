@@ -28,8 +28,8 @@ export default (props) => {
 
                     margin-top: 48px;
                     margin-bottom: 48px;
-                    margin-left: calc(50% - 256px/2 - 278px);
-                    margin-right: calc(50% - 256px/2 - 278px);
+                    margin-left: ${props.margin};
+                    margin-right: ${props.margin};
 
                     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
                 }
@@ -75,6 +75,16 @@ export default (props) => {
                     color: tomato;
                 }
 
+                @media only screen and (max-width: 600px) {
+                    .card {
+
+                        grid-template-columns: 128px auto;
+                    }
+                    .icon {
+                        width: 120px;
+                        height: 120px;
+                    }
+                }
 
             `}
             </style>

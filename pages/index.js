@@ -106,7 +106,7 @@ export default (props) => {
                 </p>
             </div>
 
-            {/* <Parallax scrollFactor={0.5} scrollOffset={-150}>
+            <Parallax scrollFactor={0.5} scrollOffset={-150}>
                 <div className="subheader" id="activities">
                     <h1 className="subheader-text">
                         What I've been up to
@@ -116,9 +116,9 @@ export default (props) => {
                         </h2>
                     </h1>
                 </div>
-            </Parallax> */}
+            </Parallax>
 
-            {/* <div className="activitycard-container">
+            <div className="activitycard-container">
                 <ActivityCard className="activitycard"
                               imgLink="/images/bentley.png"
                               title="Bentley Systems"
@@ -175,7 +175,7 @@ export default (props) => {
                         the config file automatically.
                     </p>
                 </ActivityCard>
-            </div> */}
+            </div>
 
             {/* <Parallax scrollFactor={0.5} scrollOffset={-150}>
                 <div className="subheader" id="projects">
@@ -356,6 +356,11 @@ export default (props) => {
                     background-position: center;
                 }
 
+                .activitycard-container {
+                    margin-left: calc(50% - 256px/2 - 278px);
+                    margin-right: calc(50% - 256px/2 - 278px);
+                }
+
                 #projects {
                     background: url("/images/subheader_2.png");
                     background-size: cover;
@@ -406,6 +411,11 @@ export default (props) => {
 
                     .intro-header {
                         font-size: 30px;
+                    }
+
+                    .activitycard-container {
+                        margin-left: 4%;
+                        margin-right: 4%;
                     }
                 }
             `}

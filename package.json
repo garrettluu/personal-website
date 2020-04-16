@@ -6,7 +6,7 @@
   },
   "private": true,
   "scripts": {
-    "start": "next start",
+    "start": "next start -p $PORT",
     "dev": "next",
     "build": "next build"
   },

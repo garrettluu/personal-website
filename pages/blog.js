@@ -15,21 +15,21 @@ import { loadGetInitialProps } from 'next/dist/next-server/lib/utils';
 //     }
 // };
 
-export async function getStaticProps() {
-    require('dotenv').config();
-    const response = await axios.get("https://dev.to/api/articles/me/published", {
-        headers: {
-            "api-key" : process.env.API_KEY
-        }
-    });
+// export async function getStaticProps() {
+    // require('dotenv').config();
+    // const response = await axios.get("https://dev.to/api/articles/me/published", {
+    //     headers: {
+    //         "api-key" : process.env.API_KEY
+    //     }
+    // });
 
-    const entries = response.data;
-    console.log(entries);
+    // const entries = response.data;
+    // console.log(entries);
 
-    return {
-        props: {entries}
-    }
-}
+    // return {
+    //     props: {entries}
+    // }
+// }
 
 export default (props) => {
     const [entries, setEntries] = useState([]);
@@ -50,9 +50,9 @@ export default (props) => {
     }
 
     useEffect(() => {
-        if (entries.length === 0) {
-            renderEntries();
-        }
+        // if (entries.length === 0) {
+        //     renderEntries();
+        // }
     });
 
     return (

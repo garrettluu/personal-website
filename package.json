@@ -1,22 +1,29 @@
 {
   "name": "personal-website",
   "version": "0.0.0",
+  "engines": {
+    "node": "10.15.2"
+  },
   "private": true,
   "scripts": {
-    "start": "NODE_ENV='production' node server.js",
-    "dev": "nodemon server.js",
+    "start": "next start -p $PORT",
+    "dev": "next",
     "build": "next build"
   },
   "dependencies": {
     "a11y-react-emoji": "^1.1.2",
+    "axios": "^0.19.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
     "express": "~4.16.1",
+    "mongodb": "^3.5.5",
     "morgan": "~1.9.1",
-    "next": "^9.3.2",
+    "next": "^9.3.3",
+    "next-images": "^1.4.0",
+    "node-fetch": "^2.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scroll-parallax": "^2.3.2",
     "react-typist": "^2.0.5"
   },
   "devDependencies": {

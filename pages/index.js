@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import {Parallax} from 'react-scroll-parallax';
+import React, {useState, useEffect, Children} from 'react';
 
 import Layout from '../components/Layout';
 import SquareFrame from '../components/SquareFrame';
@@ -7,39 +6,74 @@ import ActivityCard from '../components/ActivityCard';
 import ProjectSummary from '../components/ProjectSummary';
 import TypistLoop from "../components/TypistLoop";
 import BlogCard from "../components/BlogCard";
+import Parallax from "../components/Parallax";
+import axios from 'axios';
 
+
+// export async function getStaticProps() {
+    // require('dotenv').config();
+    // const response = await axios.get("https://dev.to/api/articles/me/published", {
+    //     headers: {
+    //         "api-key" : process.env.API_KEY
+    //     }
+    // });
+
+    // const entries = response.data;
+
+    // return {
+    //     props: {entries}
+    // }
+// }
 /**
  * Home page of website
  */
-export default () => {
+export default (props) => {
+    const [entries, setEntries] = useState([]);
 
-    const [offset, setOffset] = useState(0);
+    const renderFirst2Entries = async () => {
+        let result = [];
 
-    useEffect(() => {
-        window.addEventListener('scroll', parallaxScroll);
+        console.log(props.entries);
 
-        return () => {window.removeEventListener('scroll', parallaxScroll);};
-    });
+        for (let i = 0; i < 1; i++) {
+            let entry = props.entries[i]
+            result.push((
+                <BlogCard title={entry.title}
+                    date={entry.published_at}
+                    imgLink={entry.image}>
+                    <p className="body-text">
+                        {entry.description}
+                    </p>
+                </BlogCard>
+            ));
+        }
 
-    const parallaxScroll = () => {
-        setOffset(window.pageYOffset * .5);
+        setEntries(result);
     }
 
+    useEffect(() => {
+        // console.log(entries);
+        // if (entries.length === 0) {
+        //     // renderFirst2Entries();
+        // }
+    });
 
     return (
         <Layout>
-            <div className="header" style={{backgroundPositionY: offset}}>
-                <p className="header-text">
-                    Garrett Luu
-                    <div className="fancy-rectangle"></div>
-                </p>
-            </div>
-            <div className="square-frame-container">
-                <SquareFrame imgLink="/images/title_thumbnail_1.jpg" margin="12px" />
-                <SquareFrame imgLink="/images/title_thumbnail_2.jpg" margin="12px" />
-                <SquareFrame imgLink="/images/title_thumbnail_3.jpg" margin="12px" />
-            </div>
+            <Parallax scrollFactor={0.5} scrollOffset={0}>
+                <div className="header">
+                    <p className="header-text">
+                        Garrett Luu
+                        <div className="fancy-rectangle"/>
+                    </p>
+                </div>
+            </Parallax>
 
+            <div className="square-frame-container">
+                <SquareFrame imgLink="/images/title_thumbnail_1.jpg" />
+                <SquareFrame imgLink="/images/title_thumbnail_2.jpg" />
+                <SquareFrame imgLink="/images/title_thumbnail_3.jpg" />
+            </div>
             <div className="intro">
                 <div className="flex-horizontal">
                     <h1 className="intro-header">
@@ -51,7 +85,7 @@ export default () => {
                         "pursuer of knowledge.",
                     ]}/>
                 </div>
-                <div className="fancy-rectangle"></div>
+                <div className="fancy-rectangle"/>
                 <p className="body-text">
                     Hello and welcome to my website! I'm Garrett, a UCSD
                     student majoring in Computer Science. I am a developer of
@@ -72,16 +106,17 @@ export default () => {
                 </p>
             </div>
 
-            <div className="subheader" id="activities">
-                {/* style={{backgroundPositionY: offset}}> */}
-                <h1 className="subheader-text">
-                    What I've been up to
-                    <div className="fancy-rectangle"></div>
-                    <h2 className="subheader-caption">
-                        I love to be involved in both school and work.
-                    </h2>
-                </h1>
-            </div>
+            <Parallax scrollFactor={0.5} scrollOffset={-150}>
+                <div className="subheader" id="activities">
+                    <h1 className="subheader-text">
+                        What I've been up to
+                        <div className="fancy-rectangle"></div>
+                        <h2 className="subheader-caption">
+                            I love to be involved in both school and work.
+                        </h2>
+                    </h1>
+                </div>
+            </Parallax>
 
             <div className="activitycard-container">
                 <ActivityCard className="activitycard"
@@ -142,16 +177,17 @@ export default () => {
                 </ActivityCard>
             </div>
 
-            <div className="subheader" id="projects">
-                {/* style={{backgroundPositionY: offset}}> */}
-                <h1 className="subheader-text">
-                    I love to tinker
-                    <div className="fancy-rectangle"></div>
-                    <h2 className="subheader-caption">
-                        Here are some of my projects.
-                    </h2>
-                </h1>
-            </div>
+            <Parallax scrollFactor={0.5} scrollOffset={-150}>
+                <div className="subheader" id="projects">
+                    <h1 className="subheader-text">
+                        I love to tinker
+                        <div className="fancy-rectangle"></div>
+                        <h2 className="subheader-caption">
+                            Here are some of my projects.
+                        </h2>
+                    </h1>
+                </div>
+            </Parallax>
 
             <div className="projectsummary-container">
                 <ProjectSummary imgLink="/images/stakk.png"
@@ -168,18 +204,19 @@ export default () => {
                                 tech="HTML, CSS, JavaScript, jQuery" />
             </div>
 
-            <div className="subheader" id="blogs">
-                {/* // style={{backgroundPositionY: offset}}> */}
-                <h1 className="subheader-text">
-                    What I'm thinking about
-                    <div className="fancy-rectangle"></div>
-                    <h2 className="subheader-caption">
-                        My most recent blog entries.
-                    </h2>
-                </h1>
-            </div>
+            <Parallax scrollFactor={0.5} scrollOffset={-150}>
+                <div className="subheader" id="blogs">
+                    <h1 className="subheader-text">
+                        What I'm thinking about
+                        <div className="fancy-rectangle"></div>
+                        <h2 className="subheader-caption">
+                            My most recent blog entries.
+                        </h2>
+                    </h1>
+                </div>
+            </Parallax>
 
-            <div>
+            <div className="blogcard-container">
                 <BlogCard title="Why Am I Studying CS?"
                           date="2020.2.19">
                     <p className="body-text">
@@ -192,6 +229,9 @@ export default () => {
                         Lorem ipsum
                     </p>
                 </BlogCard>
+
+                {/* {entries} */}
+
             </div>
 
             <h1 className="subheader-text subheader-black">
@@ -229,19 +269,27 @@ export default () => {
                     font-family: 'Oswald';
                     font-size: 72px;
                     color: white;
+
+                }
+
+                @media only screen and (max-width: 600px) {
+                    .header-text {
+                        font-size: 48px;
+                    }
                 }
 
 
                 .square-frame-container {
                     position: absolute;
                     top: 383px;
-                    width: 100%;
+                    width: 812px;
 
                     display: flex;
                     flex-direction: horizontal;
-                    justify-content: center;
+                    justify-content: space-between;
 
-                    margin: 0 auto;
+                    margin-left: calc(50% - 256px/2 - 278px);
+                    margin-right: calc(50% - 256px/2 - 278px);
                 }
 
                 .intro {
@@ -308,6 +356,11 @@ export default () => {
                     background-position: center;
                 }
 
+                .activitycard-container {
+                    margin-left: calc(50% - 256px/2 - 278px);
+                    margin-right: calc(50% - 256px/2 - 278px);
+                }
+
                 #projects {
                     background: url("/images/subheader_2.png");
                     background-size: cover;
@@ -315,17 +368,27 @@ export default () => {
                 }
 
                 .projectsummary-container {
-                    margin: auto;
+                    width: 812px;
+
+                    margin-left: calc(50% - 256px/2 - 278px);
+                    margin-right: calc(50% - 256px/2 - 278px);
                     margin-top: 48px;
                     margin-bottom: 48px;
+
                     display: flex;
-                    justify-content: center;
+                    flex-direction: horizontal;
+                    justify-content: space-between;
                 }
                 
                 #blogs {
                     background: url("/images/subheader_3.png");
                     background-size: cover;
-                    background-position: center;
+                    background-position: center 60%;
+                }
+
+                .blogcard-container {
+                    margin-left: calc(50% - 256px/2 - 278px);
+                    margin-right: calc(50% - 256px/2 - 278px);
                 }
 
                 .social-container {
@@ -340,6 +403,55 @@ export default () => {
                     height: 128px;
 
                     margin: 24px;
+                }
+
+                @media only screen and (max-width: 600px) {
+                    .square-frame-container {
+                        top: calc(512px - 104px/2);
+                        width: 92%;
+                        margin-left: 4%;
+                        margin-right: 4%;
+                    }
+
+                    .intro {
+                        margin-top: 96px;
+                        margin-left: 4%;
+                        margin-right: 4%;
+                    }
+
+                    .intro-header {
+                        font-size: 30px;
+                    }
+
+                    .activitycard-container {
+                        margin-left: 4%;
+                        margin-right: 4%;
+                    }
+
+                    .projectsummary-container {
+                        width: 92%;
+                        margin-left: 4%;
+                        margin-right: 4%;
+
+                        flex-direction: column;
+                    }
+
+                    .blogcard-container {
+                        margin-left: 4%;
+                        margin-right: 4%;
+                    }
+
+                    .social-container {
+                        margin-left: 4%;
+                        margin-right: 4%;
+
+                        margin-top: 24px;
+                    }
+
+                    .social-icon {
+                        width: 64px;
+                        height: 64px;
+                    }
                 }
             `}
             </style>

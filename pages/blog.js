@@ -67,7 +67,7 @@ export default (props) => {
                 </Parallax>
 
                 <div>
-                    {entries}
+                    {/* {entries} */}
                 </div>
                 <style jsx>{`
                 .header {

@@ -10,20 +10,20 @@ import Parallax from "../components/Parallax";
 import axios from 'axios';
 
 
-export async function getStaticProps() {
-    require('dotenv').config();
-    const response = await axios.get("https://dev.to/api/articles/me/published", {
-        headers: {
-            "api-key" : process.env.API_KEY
-        }
-    });
+// export async function getStaticProps() {
+    // require('dotenv').config();
+    // const response = await axios.get("https://dev.to/api/articles/me/published", {
+    //     headers: {
+    //         "api-key" : process.env.API_KEY
+    //     }
+    // });
 
-    const entries = response.data;
+    // const entries = response.data;
 
-    return {
-        props: {entries}
-    }
-}
+    // return {
+    //     props: {entries}
+    // }
+// }
 /**
  * Home page of website
  */
@@ -52,10 +52,10 @@ export default (props) => {
     }
 
     useEffect(() => {
-        console.log(entries);
-        if (entries.length === 0) {
-            renderFirst2Entries();
-        }
+        // console.log(entries);
+        // if (entries.length === 0) {
+        //     // renderFirst2Entries();
+        // }
     });
 
     return (
@@ -217,7 +217,7 @@ export default (props) => {
             </Parallax>
 
             <div className="blogcard-container">
-                {/* <BlogCard title="Why Am I Studying CS?"
+                <BlogCard title="Why Am I Studying CS?"
                           date="2020.2.19">
                     <p className="body-text">
                         Lorem ipsum
@@ -228,9 +228,9 @@ export default (props) => {
                     <p className="body-text">
                         Lorem ipsum
                     </p>
-                </BlogCard> */}
+                </BlogCard>
 
-                {entries}
+                {/* {entries} */}
 
             </div>
 

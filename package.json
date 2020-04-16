@@ -1,6 +1,9 @@
 {
   "name": "personal-website",
   "version": "0.0.0",
+  "engines": {
+    "node": "10.15.2"
+  },
   "private": true,
   "scripts": {
     "start": "next start",

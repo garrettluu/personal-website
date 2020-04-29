@@ -9,8 +9,9 @@ import BlogCard from "../components/BlogCard";
 import Parallax from "../components/Parallax";
 import axios from 'axios';
 
+import * as data from '../blog-entries.json';
 
-// export async function getStaticProps() {
+export function getStaticProps() {
     // require('dotenv').config();
     // const response = await axios.get("https://dev.to/api/articles/me/published", {
     //     headers: {
@@ -20,10 +21,12 @@ import axios from 'axios';
 
     // const entries = response.data;
 
-    // return {
-    //     props: {entries}
-    // }
-// }
+    const entries = data.entries;
+
+    return {
+        props: {entries}
+    }
+}
 /**
  * Home page of website
  */
@@ -32,8 +35,6 @@ export default (props) => {
 
     const renderFirst2Entries = async () => {
         let result = [];
-
-        console.log(props.entries);
 
         for (let i = 0; i < 1; i++) {
             let entry = props.entries[i]
@@ -52,10 +53,10 @@ export default (props) => {
     }
 
     useEffect(() => {
-        // console.log(entries);
-        // if (entries.length === 0) {
-        //     // renderFirst2Entries();
-        // }
+        console.log(entries);
+        if (entries.length === 0) {
+            renderFirst2Entries();
+        }
     });
 
     return (
@@ -230,7 +231,7 @@ export default (props) => {
                     </p>
                 </BlogCard>
 
-                {/* {entries} */}
+                {entries}
 
             </div>
 

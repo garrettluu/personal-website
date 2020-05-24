@@ -218,7 +218,7 @@ export default (props) => {
             </Parallax>
 
             <div className="blogcard-container">
-                <BlogCard title="Why Am I Studying CS?"
+                {/* <BlogCard title="Why Am I Studying CS?"
                           date="2020.2.19">
                     <p className="body-text">
                         Lorem ipsum
@@ -229,7 +229,7 @@ export default (props) => {
                     <p className="body-text">
                         Lorem ipsum
                     </p>
-                </BlogCard>
+                </BlogCard> */}
 
                 {entries}
 

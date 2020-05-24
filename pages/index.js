@@ -231,7 +231,9 @@ export default (props) => {
                     </p>
                 </BlogCard> */}
 
+                <a href="https://garrettluu.github.io">
                 {entries}
+                </a>
 
             </div>
 
@@ -253,6 +255,10 @@ export default (props) => {
             </div>
 
             <style jsx>{`
+                a {
+                    text-decoration: none;
+
+                }
                 .header {
                     display: flex;
                     margin: auto;

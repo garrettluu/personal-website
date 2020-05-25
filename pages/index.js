@@ -191,7 +191,16 @@ export default (props) => {
             </Parallax>
 
             <div className="projectsummary-container">
-                <ProjectSummary imgLink="/images/stakk.png"
+                <a href="https://github.com/garrettluu/routine.ly">
+                    <img src="/images/routinely.png"/>
+                </a>
+                <a href="https://github.com/garrettluu/slearn">
+                    <img src="/images/slearn.png"/>
+                </a>
+                <p className="subheader-light subheader-black subheader-text">
+                    For more, please check out my <a href="https://github.com/garrettluu">Github</a>!
+                </p>
+                {/* <ProjectSummary imgLink="/images/stakk.png"
                                 title="Stakk"
                                 text="A full-stack web application for creating and finding study groups"
                                 tech="Firebase, Express, React, Node.js" />
@@ -202,7 +211,7 @@ export default (props) => {
                 <ProjectSummary imgLink="/images/webwaste.png"
                                 title="WebWaste"
                                 text="A Chrome extension that tracks the carbon footprint of your internet activity"
-                                tech="HTML, CSS, JavaScript, jQuery" />
+                                tech="HTML, CSS, JavaScript, jQuery" /> */}
             </div>
 
             <Parallax scrollFactor={0.5} scrollOffset={-150}>
@@ -347,6 +356,10 @@ export default (props) => {
                     color: black;
                 }
 
+                .subheader-light {
+                    font-weight: 300;
+                }
+
                 .subheader-caption {
                     margin: auto;
                     text-align: center;
@@ -383,7 +396,7 @@ export default (props) => {
                     margin-bottom: 48px;
 
                     display: flex;
-                    flex-direction: horizontal;
+                    flex-direction: column;
                     justify-content: space-between;
                 }
                 
@@ -410,6 +423,14 @@ export default (props) => {
                     height: 128px;
 
                     margin: 24px;
+                }
+
+                a {
+                    color: black;
+                }
+
+                p a {
+                    color: tomato;
                 }
 
                 @media only screen and (max-width: 600px) {

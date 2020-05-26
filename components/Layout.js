@@ -8,7 +8,7 @@ import Head from 'next/head';
  */
 export default ({ children, title = 'Garrett Luu' }) => {
 
-    const SCROLL_THRESHOLD = 495;
+    const SCROLL_THRESHOLD = 400;
 
     // Some state hooks to control style of navbar
     let [navButtonClass, setNavButtonClass] = useState("nav-button");
@@ -53,7 +53,7 @@ export default ({ children, title = 'Garrett Luu' }) => {
                 <Link href="/">
                     <a className={navButtonClass}>Home</a>
                 </Link>
-                <Link href="/blog">
+                <Link href="https://garrettluu.github.io">
                     <a className={navButtonClass}>Blog</a>
                 </Link>
                 <Link href="/projects">

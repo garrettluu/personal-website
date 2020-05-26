@@ -9,8 +9,9 @@ import BlogCard from "../components/BlogCard";
 import Parallax from "../components/Parallax";
 import axios from 'axios';
 
+import * as data from '../blog-entries.json';
 
-// export async function getStaticProps() {
+export function getStaticProps() {
     // require('dotenv').config();
     // const response = await axios.get("https://dev.to/api/articles/me/published", {
     //     headers: {
@@ -20,10 +21,12 @@ import axios from 'axios';
 
     // const entries = response.data;
 
-    // return {
-    //     props: {entries}
-    // }
-// }
+    const entries = data.entries;
+
+    return {
+        props: {entries}
+    }
+}
 /**
  * Home page of website
  */
@@ -32,8 +35,6 @@ export default (props) => {
 
     const renderFirst2Entries = async () => {
         let result = [];
-
-        console.log(props.entries);
 
         for (let i = 0; i < 1; i++) {
             let entry = props.entries[i]
@@ -52,10 +53,10 @@ export default (props) => {
     }
 
     useEffect(() => {
-        // console.log(entries);
-        // if (entries.length === 0) {
-        //     // renderFirst2Entries();
-        // }
+        console.log(entries);
+        if (entries.length === 0) {
+            renderFirst2Entries();
+        }
     });
 
     return (
@@ -190,7 +191,16 @@ export default (props) => {
             </Parallax>
 
             <div className="projectsummary-container">
-                <ProjectSummary imgLink="/images/stakk.png"
+                <a href="https://github.com/garrettluu/routine.ly">
+                    <img src="/images/routinely.png"/>
+                </a>
+                <a href="https://github.com/garrettluu/slearn">
+                    <img src="/images/slearn.png"/>
+                </a>
+                <p className="subheader-light subheader-black subheader-text">
+                    For more, please check out my <a href="https://github.com/garrettluu">Github</a>!
+                </p>
+                {/* <ProjectSummary imgLink="/images/stakk.png"
                                 title="Stakk"
                                 text="A full-stack web application for creating and finding study groups"
                                 tech="Firebase, Express, React, Node.js" />
@@ -201,7 +211,7 @@ export default (props) => {
                 <ProjectSummary imgLink="/images/webwaste.png"
                                 title="WebWaste"
                                 text="A Chrome extension that tracks the carbon footprint of your internet activity"
-                                tech="HTML, CSS, JavaScript, jQuery" />
+                                tech="HTML, CSS, JavaScript, jQuery" /> */}
             </div>
 
             <Parallax scrollFactor={0.5} scrollOffset={-150}>
@@ -217,7 +227,7 @@ export default (props) => {
             </Parallax>
 
             <div className="blogcard-container">
-                <BlogCard title="Why Am I Studying CS?"
+                {/* <BlogCard title="Why Am I Studying CS?"
                           date="2020.2.19">
                     <p className="body-text">
                         Lorem ipsum
@@ -228,9 +238,11 @@ export default (props) => {
                     <p className="body-text">
                         Lorem ipsum
                     </p>
-                </BlogCard>
+                </BlogCard> */}
 
-                {/* {entries} */}
+                <a href="https://garrettluu.github.io">
+                {entries}
+                </a>
 
             </div>
 
@@ -252,6 +264,10 @@ export default (props) => {
             </div>
 
             <style jsx>{`
+                a {
+                    text-decoration: none;
+
+                }
                 .header {
                     display: flex;
                     margin: auto;
@@ -340,6 +356,10 @@ export default (props) => {
                     color: black;
                 }
 
+                .subheader-light {
+                    font-weight: 300;
+                }
+
                 .subheader-caption {
                     margin: auto;
                     text-align: center;
@@ -376,7 +396,7 @@ export default (props) => {
                     margin-bottom: 48px;
 
                     display: flex;
-                    flex-direction: horizontal;
+                    flex-direction: column;
                     justify-content: space-between;
                 }
                 
@@ -403,6 +423,14 @@ export default (props) => {
                     height: 128px;
 
                     margin: 24px;
+                }
+
+                a {
+                    color: black;
+                }
+
+                p a {
+                    color: tomato;
                 }
 
                 @media only screen and (max-width: 600px) {

@@ -37,7 +37,7 @@ export default (props) => {
                     object-fit:cover;
                 }
 
-                @media only screen and (max-width: 600px) {
+                @media only screen and (max-width: 850px) {
                     // .frame {
                     //     margin: 4px;
                     // }

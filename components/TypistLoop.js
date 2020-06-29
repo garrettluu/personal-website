@@ -53,7 +53,7 @@ export default (props) => {
                     margin-bottom: 0;
                 }
 
-                @media only screen and (max-width: 600px) {
+                @media only screen and (max-width: 850px) {
                     .intro-header {
                         font-size: 30px;
                     }

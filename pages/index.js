@@ -121,16 +121,27 @@ export default (props) => {
 
             <div className="activitycard-container">
                 <ActivityCard className="activitycard"
+                              imgLink="/images/mlh.png"
+                              title="Major League Hacking"
+                              role="Open Source Fellow"
+                              date="2020.6 - 2020.8">
+                    <p className="body-text">
+                        I got the opportunity to participate in the the MLH Fellowship, where I am
+                        currently making open-source contributions to SheetJS, a JavaScript library
+                        for spreadsheets.
+                    </p>
+                </ActivityCard>
+                {/* <ActivityCard className="activitycard"
                               imgLink="/images/bentley.png"
                               title="Bentley Systems"
                               role="Incoming Software Development Intern"
-                              date="2020.6 - 2020.9">
+                              >
                     <p className="body-text">
                         Recently, I was accepted into Bentley Systems' summer internship
                         program! I excited to see where this opportunity has in store for
                         me in the future.
                     </p>
-                </ActivityCard>
+                </ActivityCard> */}
 
                 <ActivityCard className="activitycard"
                               imgLink="/images/acm.png"
@@ -192,10 +203,10 @@ export default (props) => {
 
             <div className="projectsummary-container">
                 <a href="https://github.com/garrettluu/routine.ly">
-                    <img src="/images/routinely.png"/>
+                    <img className="project-card" src="/images/routinely.png"/>
                 </a>
                 <a href="https://github.com/garrettluu/slearn">
-                    <img src="/images/slearn.png"/>
+                    <img className="project-card" src="/images/slearn.png"/>
                 </a>
                 <p className="subheader-light subheader-black subheader-text">
                     For more, please check out my <a href="https://github.com/garrettluu">Github</a>!
@@ -288,7 +299,7 @@ export default (props) => {
 
                 }
 
-                @media only screen and (max-width: 600px) {
+                @media only screen and (max-width: 850px) {
                     .header-text {
                         font-size: 48px;
                     }
@@ -433,7 +444,7 @@ export default (props) => {
                     color: tomato;
                 }
 
-                @media only screen and (max-width: 600px) {
+                @media only screen and (max-width: 850px) {
                     .square-frame-container {
                         top: calc(512px - 104px/2);
                         width: 92%;
@@ -462,6 +473,10 @@ export default (props) => {
                         margin-right: 4%;
 
                         flex-direction: column;
+                    }
+
+                    .project-card {
+                        width: 100%;
                     }
 
                     .blogcard-container {

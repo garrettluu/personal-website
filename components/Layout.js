@@ -89,7 +89,7 @@ export default ({ children, title = 'Garrett Luu' }) => {
                     font-weight: 300;
                 }
 
-                @media only screen and (max-width: 600px) {
+                @media only screen and (max-width: 850px) {
                     .fancy-rectangle {
                         width: 152px;
                     }

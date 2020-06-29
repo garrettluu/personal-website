@@ -4,7 +4,7 @@ export default (props) => {
     return (
         <div className={`card ${props.className}`}>
             <div>
-                <img className="icon" src={props.imgLink}></img>
+                <img className="icon" src={props.imgLink ? props.imgLink : "./images/title_thumbnail_1.jpg"}></img>
             </div>
             <div className="info">
                 <h2 className="title">

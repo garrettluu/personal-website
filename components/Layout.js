@@ -53,7 +53,7 @@ export default ({ children, title = 'Garrett Luu' }) => {
                 <Link href="/">
                     <a className={navButtonClass}>Home</a>
                 </Link>
-                <Link href="https://garrettluu.github.io">
+                <Link href="/blog">
                     <a className={navButtonClass}>Blog</a>
                 </Link>
                 <Link href="/projects">
@@ -81,7 +81,8 @@ export default ({ children, title = 'Garrett Luu' }) => {
                     height: 8px;
                     background-color: tomato;
 
-                    margin: auto;
+                    margin-left: auto;
+                    margin-right: auto;
                 }
 
                 .body-text {

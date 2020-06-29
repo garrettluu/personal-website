@@ -1,10 +1,12 @@
 import React from 'react';
 
 export default (props) => {
+    const DEFAULT_IMAGE = "./images/title_thumbnail_1.jpg";
     return (
-        <div className={`card ${props.className}`}>
+        <a className={`card ${props.className}`}
+           href={"/blog/" + props.link}>
             <div>
-                <img className="icon" src={props.imgLink ? props.imgLink : "./images/title_thumbnail_1.jpg"}></img>
+                <img className="icon" src={props.imgLink ? props.imgLink : DEFAULT_IMAGE}/>
             </div>
             <div className="info">
                 <h2 className="title">
@@ -22,6 +24,8 @@ export default (props) => {
                 .card {
                     display: grid;
                     grid-template-columns: 256px auto;
+                    text-decoration: none;
+                    color: black;
 
                     margin-top: 48px;
                     margin-bottom: 48px;
@@ -77,6 +81,6 @@ export default (props) => {
 
             `}
             </style>
-        </div>
+        </a>
     );
 }

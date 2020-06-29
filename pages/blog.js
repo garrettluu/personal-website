@@ -15,45 +15,29 @@ import { loadGetInitialProps } from 'next/dist/next-server/lib/utils';
 //     }
 // };
 
-// export async function getStaticProps() {
-    // require('dotenv').config();
-    // const response = await axios.get("https://dev.to/api/articles/me/published", {
-    //     headers: {
-    //         "api-key" : process.env.API_KEY
-    //     }
-    // });
+export async function getStaticProps() {
+    const response = await axios.get("http://localhost:3001/blog/previews");
 
-    // const entries = response.data;
-    // console.log(entries);
+    const entries = response.data;
+    console.log(entries);
 
-    // return {
-    //     props: {entries}
-    // }
-// }
+    return {
+        props: {entries}
+    }
+}
 
 export default (props) => {
-    const [entries, setEntries] = useState([]);
-
-    const renderEntries = async () => {
-        let result = props.entries.map((entry) => {
-            console.log(entry);
-            return (
-                <BlogCard title={entry.title}
-                        date={entry.published_at}>
-                    <p className="body-text">
-                        {entry.description}
-                    </p>
-                </BlogCard>
-        )});
-
-        setEntries(result);
-    }
-
-    useEffect(() => {
-        // if (entries.length === 0) {
-        //     renderEntries();
-        // }
-    });
+    // const [previews, setPreviews] = useState([]);
+    // useEffect(() => {
+    //     setPreviews(props.entries.map((e) => (
+    //         <BlogCard title={e.title}
+    //                   date={e.date}>
+    //             <p className='body-text'>
+    //                 {e.description}
+    //             </p>
+    //         </BlogCard>
+    //     )));
+    // });
 
     return (
             <Layout>
@@ -67,7 +51,7 @@ export default (props) => {
                 </Parallax>
 
                 <div>
-                    {/* {entries} */}
+                    {/* {previews} */}
                 </div>
                 <style jsx>{`
                 .header {

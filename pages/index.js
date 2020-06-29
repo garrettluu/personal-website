@@ -11,17 +11,10 @@ import axios from 'axios';
 
 import * as data from '../blog-entries.json';
 
-export function getStaticProps() {
-    // require('dotenv').config();
-    // const response = await axios.get("https://dev.to/api/articles/me/published", {
-    //     headers: {
-    //         "api-key" : process.env.API_KEY
-    //     }
-    // });
+export async function getStaticProps() {
+    const response = await axios.get("http://localhost:3001/blog/previews");
 
-    // const entries = response.data;
-
-    const entries = data.entries;
+    const entries = response.data
 
     return {
         props: {entries}
@@ -31,34 +24,16 @@ export function getStaticProps() {
  * Home page of website
  */
 export default (props) => {
-    const [entries, setEntries] = useState([]);
-
-    const renderFirst2Entries = async () => {
-        let result = [];
-
-        for (let i = 0; i < 1; i++) {
-            let entry = props.entries[i]
-            result.push((
-                <BlogCard title={entry.title}
-                    date={entry.published_at}
-                    imgLink={entry.image}>
-                    <p className="body-text">
-                        {entry.description}
-                    </p>
-                </BlogCard>
-            ));
-        }
-
-        setEntries(result);
-    }
-
-    useEffect(() => {
-        console.log(entries);
-        if (entries.length === 0) {
-            renderFirst2Entries();
-        }
-    });
-
+    const previews = props.entries.map((e) => (
+            <BlogCard title={e.title}
+                      date={e.date}
+                      link={e.url}>
+                <p className='body-text'>
+                    {console.log(e.url)}
+                    {e.description}
+                </p>
+            </BlogCard>
+        ));
     return (
         <Layout>
             <Parallax scrollFactor={0.5} scrollOffset={0}>
@@ -131,6 +106,7 @@ export default (props) => {
                         for spreadsheets.
                     </p>
                 </ActivityCard>
+                {/*internship cancelled :(*/}
                 {/* <ActivityCard className="activitycard"
                               imgLink="/images/bentley.png"
                               title="Bentley Systems"
@@ -211,18 +187,6 @@ export default (props) => {
                 <p className="subheader-light subheader-black subheader-text">
                     For more, please check out my <a href="https://github.com/garrettluu">Github</a>!
                 </p>
-                {/* <ProjectSummary imgLink="/images/stakk.png"
-                                title="Stakk"
-                                text="A full-stack web application for creating and finding study groups"
-                                tech="Firebase, Express, React, Node.js" />
-                <ProjectSummary imgLink="/images/r3.png"
-                                title="R3"
-                                text="A 3D graphing calculator for the TI-84 Plus CE"
-                                tech="C programming language" />
-                <ProjectSummary imgLink="/images/webwaste.png"
-                                title="WebWaste"
-                                text="A Chrome extension that tracks the carbon footprint of your internet activity"
-                                tech="HTML, CSS, JavaScript, jQuery" /> */}
             </div>
 
             <Parallax scrollFactor={0.5} scrollOffset={-150}>
@@ -238,22 +202,9 @@ export default (props) => {
             </Parallax>
 
             <div className="blogcard-container">
-                {/* <BlogCard title="Why Am I Studying CS?"
-                          date="2020.2.19">
-                    <p className="body-text">
-                        Lorem ipsum
-                    </p>
-                </BlogCard>
-                <BlogCard title="Why Am I Studying CS?"
-                          date="2020.2.19">
-                    <p className="body-text">
-                        Lorem ipsum
-                    </p>
-                </BlogCard> */}
-
-                <a href="https://garrettluu.github.io">
-                {entries}
-                </a>
+                {previews}
+                {/* <a href="https://garrettluu.github.io">
+                </a> */}
 
             </div>
 

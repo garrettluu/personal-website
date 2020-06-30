@@ -104,9 +104,6 @@ export default (props) => {
                   text-decoration: none;
                 }
 
-                b {
-                  font-weight: 300;
-                }
             `}
       </style>
     </Layout>

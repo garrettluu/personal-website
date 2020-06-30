@@ -98,7 +98,7 @@ export default (props) => {
             <div className="activitycard-container">
                 <ActivityCard className="activitycard"
                               imgLink="/images/mlh.png"
-                              title="Major League Hacking"
+                              title="Major League Hacking💻"
                               role="Open Source Fellow"
                               date="2020.6 - 2020.8">
                     <p className="body-text">
@@ -124,7 +124,7 @@ export default (props) => {
                               imgLink="/images/acm.png"
                               title="ACM @ UC San Diego🔷"
                               role="Technical Event Director"
-                              date="2019.11 - now">
+                              date="2019.11 - 2020.6">
                     <p className="body-text">
                         I taught technical workshops about
                         Firebase and Git/Unix, volunteered to help during other technical
@@ -138,7 +138,7 @@ export default (props) => {
 
                 <ActivityCard className="activitycard"
                               imgLink="/images/ieee.png"
-                              title="IEEE UC San Diego Branch"
+                              title="IEEE UC San Diego Branch💡"
                               role="Competitor and Quarterly Projects Mentor"
                               date="2019.09 - 2020.3">
                     <p className="body-text">
@@ -152,7 +152,7 @@ export default (props) => {
 
                 <ActivityCard className="activitycard"
                               imgLink="/images/staylinked.png"
-                              title="StayLinked Corporation"
+                              title="StayLinked Corporation📗"
                               role="Web Development Intern"
                               date="2016.08">
                     <p className="body-text">

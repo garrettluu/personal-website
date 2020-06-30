@@ -16,10 +16,10 @@ import { loadGetInitialProps } from 'next/dist/next-server/lib/utils';
 // };
 
 export async function getStaticProps() {
+    require('dotenv').config();
     const response = await axios.get("http://localhost:3001/blog/previews");
 
     const entries = response.data;
-    console.log(entries);
 
     return {
         props: {entries}
@@ -38,6 +38,16 @@ export default (props) => {
     //         </BlogCard>
     //     )));
     // });
+    const previews = props.entries.map((e) => (
+            <BlogCard title={e.title}
+                      imgLink={e.image}
+                      date={e.date}
+                      link={e.url}>
+                <p className='body-text'>
+                    {e.description}
+                </p>
+            </BlogCard>
+        ));
 
     return (
             <Layout>
@@ -50,8 +60,8 @@ export default (props) => {
                     </div>
                 </Parallax>
 
-                <div>
-                    {/* {previews} */}
+                <div className="blog-content">
+                    {previews}
                 </div>
                 <style jsx>{`
                 .header {
@@ -71,6 +81,11 @@ export default (props) => {
                     font-family: 'Oswald';
                     font-size: 72px;
                     color: white;
+                }
+
+                .blog-content {
+                  margin-left: 20%;
+                  margin-right: 20%;
                 }
             `}
                 </style>

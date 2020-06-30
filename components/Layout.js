@@ -88,6 +88,16 @@ export default ({ children, title = 'Garrett Luu' }) => {
                 .body-text {
                     font-family: 'Roboto', sans-serif;
                     font-weight: 300;
+                    font-size: 18px;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: tomato;
+                }
+
+                b {
+                  font-weight: 400;
                 }
 
                 @media only screen and (max-width: 850px) {

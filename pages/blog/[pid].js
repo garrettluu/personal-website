@@ -2,18 +2,21 @@ import axios from 'axios';
 import Layout from '../../components/Layout';
 import Parallax from '../../components/Parallax';
 import { useRouter } from 'next/router';
+import ReactMarkdown from 'react-markdown';
 
 export async function getStaticPaths() {
+    require('dotenv').config();
+  const response = await axios.get(process.env.BACKEND_URL + "/blog/urls");
+  const paths = response.data.map((url) => "/blog/" + url);
   return {
-    paths: [
-      '/blog/test'
-    ],
+    paths: paths,
     fallback: true,
   }
 }
 
 export async function getStaticProps(context) {
-  const response = await axios.get("http://localhost:3001/blog/url", {
+    require('dotenv').config();
+  const response = await axios.get(process.env.BACKEND_URL + "/blog/url", {
     params: {
       url: context.params.pid,
     }
@@ -32,18 +35,23 @@ export default (props) => {
       <Parallax scrollFactor={0.5} scrollOffset={0}>
         <div className="header">
           <p className="header-text">
-            {props.entry.title}
+            {props.entry ? props.entry.title : ""}
           </p>
             <div className="fancy-rectangle"></div>
           <p className="subheader-text">
-            {props.entry.description}
+            {props.entry ? props.entry.description : ""}
           </p>
         </div>
       </Parallax>
 
-      <div>
+      <div className="blog-content date-text">
+        {props.entry ? props.entry.date : ""}
+      </div>
+
+      <div className="blog-content">
       <p className="body-text">
-        {props.entry.content}
+        <ReactMarkdown source={props.entry ? props.entry.content : ""}
+                       escapeHtml={false}/>
       </p>
       </div>
 
@@ -76,7 +84,28 @@ export default (props) => {
                     font-size: 36px;
                     color: white;
                     margin-top: 0;
+                }
 
+                .date-text {
+                   color: tomato;
+                   margin-top: 30px;
+                   margin-bottom: 30px;
+
+                   font-size: 24px;
+                   font-family: 'Oswald';
+                }
+
+                .blog-content {
+                  margin-left: 20%;
+                  margin-right: 20%;
+                }
+
+                a {
+                  text-decoration: none;
+                }
+
+                b {
+                  font-weight: 300;
                 }
             `}
       </style>

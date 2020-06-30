@@ -12,7 +12,8 @@ import axios from 'axios';
 import * as data from '../blog-entries.json';
 
 export async function getStaticProps() {
-    const response = await axios.get("http://localhost:3001/blog/previews");
+    require('dotenv').config();
+    const response = await axios.get(process.env.BACKEND_URL + "/blog/previews");
 
     const entries = response.data
 
@@ -26,10 +27,10 @@ export async function getStaticProps() {
 export default (props) => {
     const previews = props.entries.map((e) => (
             <BlogCard title={e.title}
+                      imgLink={e.image}
                       date={e.date}
                       link={e.url}>
                 <p className='body-text'>
-                    {console.log(e.url)}
                     {e.description}
                 </p>
             </BlogCard>
@@ -228,7 +229,6 @@ export default (props) => {
             <style jsx>{`
                 a {
                     text-decoration: none;
-
                 }
                 .header {
                     display: flex;

@@ -17,7 +17,7 @@ import { loadGetInitialProps } from 'next/dist/next-server/lib/utils';
 
 export async function getStaticProps() {
     require('dotenv').config();
-    const response = await axios.get("http://localhost:3001/blog/previews");
+    const response = await axios.get(process.env.BACKEND_URL + "/blog/previews");
 
     const entries = response.data;
 

@@ -53,7 +53,7 @@ export default ({ children, title = 'Garrett Luu' }) => {
                 <Link href="/">
                     <a className={navButtonClass}>Home</a>
                 </Link>
-                <Link href="https://garrettluu.github.io">
+                <Link href="h/blog">
                     <a className={navButtonClass}>Blog</a>
                 </Link>
                 <Link href="/projects">

@@ -20,7 +20,7 @@ export async function getStaticProps() {
     });
 
     const entries = response.data
-
+    
     return {
         props: {entries}
     }
@@ -184,6 +184,7 @@ export default (props) => {
 
             <div className="projectsummary-container">
                 <a href="https://github.com/garrettluu/routine.ly">
+
                     <img className="project-card" src="/images/routinely.png"/>
                 </a>
                 <a href="https://github.com/garrettluu/slearn">
@@ -210,6 +211,7 @@ export default (props) => {
                 {previews}
                 {/* <a href="https://garrettluu.github.io">
                 </a> */}
+
 
             </div>
 

@@ -13,7 +13,11 @@ import * as data from '../blog-entries.json';
 
 export async function getStaticProps() {
     require('dotenv').config();
-    const response = await axios.get(process.env.BACKEND_URL + "/blog/previews");
+    const response = await axios.get(process.env.BACKEND_URL + "/blog/previews", {
+        params: {
+            limit: 2,
+        },
+    });
 
     const entries = response.data
 

@@ -4,16 +4,6 @@ import axios from 'axios';
 import Layout from '../components/Layout';
 import BlogCard from "../components/BlogCard";
 import Parallax from '../components/Parallax';
-import { loadGetInitialProps } from 'next/dist/next-server/lib/utils';
-
-// export async function getServerSideProps(context) {
-//     const response = await axios.get('http://localhost:3000/blog/entries');
-//     console.log("Sent axios request");
-//     console.log(response.data);
-//     return {
-//         props: {entries: response.data}
-//     }
-// };
 
 export async function getStaticProps() {
     require('dotenv').config();
@@ -27,17 +17,6 @@ export async function getStaticProps() {
 }
 
 export default (props) => {
-    // const [previews, setPreviews] = useState([]);
-    // useEffect(() => {
-    //     setPreviews(props.entries.map((e) => (
-    //         <BlogCard title={e.title}
-    //                   date={e.date}>
-    //             <p className='body-text'>
-    //                 {e.description}
-    //             </p>
-    //         </BlogCard>
-    //     )));
-    // });
     const previews = props.entries.map((e) => (
             <BlogCard title={e.title}
                       imgLink={e.image}

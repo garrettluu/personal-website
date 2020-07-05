@@ -10,7 +10,7 @@ export async function getStaticPaths() {
   const paths = response.data.map((url) => "/blog/" + url);
   return {
     paths: paths,
-    fallback: true,
+    fallback: false,
   }
 }
 

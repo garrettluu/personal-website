@@ -90,6 +90,22 @@ export default ({ children, title = 'Garrett Luu' }) => {
                     font-weight: 300;
                 }
 
+                .body-text strong {
+                    font-weight: normal;
+                }
+
+                .body-text img {
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 60%;
+                }
+
+                .body-text h1 {
+                    font-family: 'Oswald', sans-serif;
+                    font-weight: normal;
+                }
+
                 a {
                     text-decoration: none;
                     color: tomato;

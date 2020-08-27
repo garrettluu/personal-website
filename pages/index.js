@@ -209,10 +209,6 @@ export default (props) => {
 
             <div className="blogcard-container">
                 {previews}
-                {/* <a href="https://garrettluu.github.io">
-                </a> */}
-
-
             </div>
 
             <h1 className="subheader-text subheader-black">
@@ -367,6 +363,14 @@ export default (props) => {
                     flex-direction: column;
                     justify-content: space-between;
                 }
+
+                .project-card {
+                    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)
+                }
+
+                .project-card:hover {
+                    transform: scale(1.1);
+                }
                 
                 #blogs {
                     background: url("/images/subheader_3.png");
@@ -391,6 +395,11 @@ export default (props) => {
                     height: 128px;
 
                     margin: 24px;
+                    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)
+                }
+
+                .social-icon:hover {
+                    transform: scale(1.1);
                 }
 
                 a {

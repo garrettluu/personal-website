@@ -54,7 +54,7 @@ export default (props) => {
                 }
 
                 .fade-in.visible {
-                    transition: opacity .25s ease-in;
+                    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
                     opacity: 1;
                 }
             `}

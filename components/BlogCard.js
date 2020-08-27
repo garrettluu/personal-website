@@ -33,6 +33,12 @@ export default (props) => {
                     margin-right: ${props.margin};
 
                     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+
+                    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+                }
+
+                .card:hover {
+                    transform: scale(1.1);
                 }
 
                 .icon {

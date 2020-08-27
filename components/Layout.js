@@ -53,7 +53,7 @@ export default ({ children, title = 'Garrett Luu' }) => {
                 <Link href="/">
                     <a className={navButtonClass}>Home</a>
                 </Link>
-                <Link href="https://garrettluu.github.io">
+                <Link href="/blog">
                     <a className={navButtonClass}>Blog</a>
                 </Link>
                 <Link href="/projects">
@@ -88,6 +88,22 @@ export default ({ children, title = 'Garrett Luu' }) => {
                 .body-text {
                     font-family: 'Roboto', sans-serif;
                     font-weight: 300;
+                }
+
+                .body-text strong {
+                    font-weight: normal;
+                }
+
+                .body-text img {
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 60%;
+                }
+
+                .body-text h1 {
+                    font-family: 'Oswald', sans-serif;
+                    font-weight: normal;
                 }
 
                 a {

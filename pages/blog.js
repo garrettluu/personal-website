@@ -20,6 +20,7 @@ export default (props) => {
     const previews = props.entries.map((e) => (
         <BlogCard title={e.title}
             imgLink={e.image}
+            margin={0}
             date={e.date}
             link={e.url}>
             <p className='body-text'>
@@ -49,7 +50,7 @@ export default (props) => {
                     width: 100%;
                     height: 512px;
 
-                    background: url("/images/titlebg.jpg") no-repeat;
+                    background: url("/images/subheader_3.png") no-repeat;
                     background-size: cover;
                 }
 

@@ -183,13 +183,23 @@ export default (props) => {
             </Parallax>
 
             <div className="projectsummary-container">
+                <a href="https://github.com/MLH-Fellowship/babel-sandbox">
+                    <img className="project-card" src="/images/babel.png"/>
+                </a>
                 <a href="https://github.com/garrettluu/routine.ly">
-
                     <img className="project-card" src="/images/routinely.png"/>
                 </a>
                 <a href="https://github.com/garrettluu/slearn">
                     <img className="project-card" src="/images/slearn.png"/>
                 </a>
+                <div className="scale flex-horizontal space-between flex-vertical-mobile">
+                    <a href="https://github.com/garrettluu/stakk">
+                        <img className="project-card project-card-small" src="/images/stakk.png" />
+                    </a>
+                    <a href="https://github.com/daniel-d-truong/web-waste">
+                        <img className="project-card project-card-small" src="/images/webwaste.png" />
+                    </a>
+                </div>
                 <p className="subheader-light subheader-black subheader-text">
                     For more, please check out my <a href="https://github.com/garrettluu">Github</a>!
                 </p>
@@ -298,6 +308,10 @@ export default (props) => {
                     justify-content: flex-start;
                 }
 
+                .space-between {
+                    justify-content: space-between;
+                }
+
                 .subheader {
                     display: flex;
                     margin: auto;
@@ -356,7 +370,7 @@ export default (props) => {
 
                     margin-left: calc(50% - 256px/2 - 278px);
                     margin-right: calc(50% - 256px/2 - 278px);
-                    margin-top: 48px;
+                    margin-top: 0;
                     margin-bottom: 48px;
 
                     display: flex;
@@ -365,6 +379,11 @@ export default (props) => {
                 }
 
                 .project-card {
+                    margin-top: 48px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+                    border-radius: 20px;
                     transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)
                 }
 
@@ -443,6 +462,7 @@ export default (props) => {
 
                     .project-card {
                         width: 100%;
+                        margin-top: 24px;
                     }
 
                     .blogcard-container {
@@ -462,6 +482,18 @@ export default (props) => {
                         height: 64px;
                     }
                 }
+
+                @media only screen and (max-width: 650px) {
+                    .project-card-small {
+                        width: 100%;
+                        height: auto;
+                    }
+
+                    .flex-vertical-mobile {
+                        flex-direction: column;
+                    }
+                }
+
             `}
             </style>
         </Layout>

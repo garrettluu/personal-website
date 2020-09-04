@@ -63,7 +63,7 @@ export default (props) => {
                     width: 100%;
                     height: 512px;
 
-                    background: url("/images/titlebg.jpg") no-repeat;
+                    background: url("/images/subheader_3.png") no-repeat;
                     background-size: cover;
                 }
 
@@ -107,6 +107,13 @@ export default (props) => {
                 @media only screen and (max-width: 850px) {
                     .header-text {
                         font-size: 48px;
+                        padding-left: 4%;
+                        padding-right: 4%;
+                    }
+                    .subheader-text {
+                        font-size: 24px;
+                        padding-left: 4%;
+                        padding-right: 4%;
                     }
                     .blog-content {
                         margin-left: 4%;

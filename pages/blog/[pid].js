@@ -112,6 +112,8 @@ export default (props) => {
                     }
                     .subheader-text {
                         font-size: 24px;
+                        padding-left: 4%;
+                        padding-right: 4%;
                     }
                     .blog-content {
                         margin-left: 4%;

@@ -101,14 +101,40 @@ export default (props) => {
 
             <div className="activitycard-container">
                 <ActivityCard className="activitycard"
+                              imgLink="/images/hack.png"
+                              title="ACM Hack @ UCSD ☕"
+                              role="Co-president & Co-founder"
+                              date="2020.5 - Now">
+                    <p className="body-text">
+                        I'm excited to be starting a new student organization, ACM Hack, dedicated
+                        to software engineering! We plan to host workshop series in web development,
+                        Python, and mobile development, while also connecting students to a greater
+                        computing community.
+                    </p>
+                </ActivityCard>
+                <ActivityCard className="activitycard"
                               imgLink="/images/mlh.png"
-                              title="Major League Hacking💻"
+                              title="Major League Hacking 💻"
                               role="Open Source Fellow"
                               date="2020.6 - 2020.8">
                     <p className="body-text">
-                        I got the opportunity to participate in the the MLH Fellowship, where I am
-                        currently making open-source contributions to SheetJS, a JavaScript library
-                        for spreadsheets.
+                        I got the opportunity to participate in the the MLH Fellowship, where I made
+                        open-source contributions to SheetJS (JavaScript spreadsheets
+                        library) and launched new projects WordJS (JavaScript document parsing library)
+                        and Babel Sandbox (Babel IDE).
+                    </p>
+                </ActivityCard>
+                <ActivityCard className="activitycard"
+                              imgLink="/images/intelect.png"
+                              title="IntElect 📚"
+                              role="Backend Software Engineer"
+                              date="2020.2 - 2020.8">
+                    <p className="body-text">
+                        Using Express, Node.js, MongoDB, and GraphQL, 
+                        I developed the backend API for IntElect, a startup dedicated to connecting
+                        students with opportunities in their career. Working in a startup was an
+                        interesting experience, and I really enjoyed the fast-paced but flexible
+                        environment.
                     </p>
                 </ActivityCard>
                 {/*internship cancelled :(*/}
@@ -126,7 +152,7 @@ export default (props) => {
 
                 <ActivityCard className="activitycard"
                               imgLink="/images/acm.png"
-                              title="ACM @ UC San Diego🔷"
+                              title="ACM @ UC San Diego 🔷"
                               role="Technical Event Director"
                               date="2019.11 - 2020.6">
                     <p className="body-text">
@@ -142,7 +168,7 @@ export default (props) => {
 
                 <ActivityCard className="activitycard"
                               imgLink="/images/ieee.png"
-                              title="IEEE UC San Diego Branch💡"
+                              title="IEEE UC San Diego Branch 💡"
                               role="Competitor and Quarterly Projects Mentor"
                               date="2019.09 - 2020.3">
                     <p className="body-text">
@@ -156,7 +182,7 @@ export default (props) => {
 
                 <ActivityCard className="activitycard"
                               imgLink="/images/staylinked.png"
-                              title="StayLinked Corporation📗"
+                              title="StayLinked Corporation 📗"
                               role="Web Development Intern"
                               date="2016.08">
                     <p className="body-text">

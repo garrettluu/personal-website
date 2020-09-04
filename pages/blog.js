@@ -83,9 +83,6 @@ export default (props) => {
                 }
 
                 @media only screen and (max-width: 850px) {
-                    // .header {
-                    //     width: 100%;
-                    // }
                     .header-text {
                         font-size: 48px;
                         padding-left: 4%;

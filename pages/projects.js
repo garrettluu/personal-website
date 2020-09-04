@@ -8,10 +8,10 @@ export default (props) => {
         <Layout>
             <Parallax scrollFactor={0.5} scrollOffset={0}>
                 <div className="header">
-                    <p className="header-text">
+                    <div className="header-text">
                         Projects
                         <div className="fancy-rectangle"></div>
-                    </p>
+                    </div>
                 </div>
             </Parallax>
 
@@ -25,10 +25,8 @@ export default (props) => {
                     interesting and meaningful. Feel free to visit my <a href="https://github.com/garrettluu">Github</a> and peruse
                     my repositories if you want to see more!
                 </p>
-                <p className="body-text">
-                </p>
-                <div>
-                    <h1 className="project-title">Babel Sandbox - an IDE and educational tool for Babel</h1>
+                <div id="babel-sandbox">
+                    <h1 className="project-title">Babel Sandbox - IDE and educational tool for Babel</h1>
                     <h2 className="tech-text">
                         React, Semantic UI, SailsJS
                     </h2>
@@ -61,13 +59,13 @@ export default (props) => {
                     </p>
                     <img className="project-card" src="https://dev-to-uploads.s3.amazonaws.com/i/ofni1muqpd9h0mbk0tvg.PNG" />
                 </div>
-                <div>
+                <div id="routinely">
                     <h1 className="project-title">Routine.ly - Task Scheduling App</h1>
                     <h2 className="tech-text">
                         Firebase, Flutter, Dart
                     </h2>
                     <p className="body-text">
-                        <b>Github repo:</b> 
+                        <b>Github repo: </b> <a href="https://github.com/garrettluu/routine.ly">garrettluu/routine.ly</a>
                     </p>
                     <p className="body-text">
                         Submitted as part of <b>MLH Hack at Home 2020</b>. For this remote hackathon, I decided to compete solo and really focus on learning
@@ -83,15 +81,53 @@ export default (props) => {
                     </p>
                     <img className="project-card" src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/083/792/datas/gallery.jpg" />
                 </div>
-                <div>
-                    <h1 className="project-title">Slearn</h1>
+                <div id="slearn">
+                    <h1 className="project-title">Slearn - AI Flashcard Generator</h1>
                     <h2 className="tech-text">
                         Express, Node.js, React
                     </h2>
                     <p className="body-text">
-                        Submitted as part of <b>HooHacks 2020</b>.
+                        <b>Github repo: </b> <a href="https://github.com/garrettluu/slearn">garrettluu/slearn</a>
                     </p>
-                    <img className="project-card" src="/images/slearn.png" />
+                    <p className="body-text">
+                        Submitted as part of <b>HooHacks 2020</b>. I teamed up with a few friends and built this AI flashcard generator in the last 8 hours of the
+                        hackathon. Using a few APIs, we were able to pull data from Wikipedia articles and feed the text into an AI, which would generate questions
+                        to be displayed to the user. The backend is a simple Express server, while the front end is built with React, and uses the React Spring
+                        component library.
+                    </p>
+                    <img className="project-card" src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/000/995/361/datas/original.png"/>
+                </div>
+                <div id="webwaste">
+                    <h1 className="project-title">WebWaste - Carbon-tracking Chrome Extension</h1>
+                    <h2 className="tech-text">
+                        Express, Node.js, React
+                    </h2>
+                    <p className="body-text">
+                        <b>Github repo: </b><a href="https://github.com/daniel-d-truong/web-waste">daniel-d-truong/web-waste</a>
+                    </p>
+                    <p className="body-text">
+                        Submitted as part of <b>HackTech 2020</b>. Working with a few friends, we had the idea to track the carbon footprint
+                        of a user's internet activity by building a Chrome extension. I had never worked with Chrome extensions before
+                        but it was simple enough to get started. I implemented a feature to pause videos when the user switches to a
+                        different tab, and another feature to prevent downloading the same file twice.
+                    </p>
+                    <img className="project-card" src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/000/953/111/datas/original.png"/>
+                </div>
+                <div id="stakk">
+                    <h1 className="project-title">Stakk - Study Group App</h1>
+                    <h2 className="tech-text">
+                        Express, Node.js, React
+                    </h2>
+                    <p className="body-text">
+                        <b>Github repo: </b><a href="https://github.com/garrettluu/stakk">garrettluu/stakk</a>
+                    </p>
+                    <p className="body-text">
+                        Built at <b>SDHacks 2019</b>. This was my first time building a full-stack web application using
+                        Firebase, Express, React, and Node.js, so there was a lot I had to learn. We only managed to
+                        implement very basic features, but it was an incredibly fun learning experience, and made me
+                        really enjoy web development.
+                    </p>
+                    <img className="project-card-small" src="/images/stakk.png"/>
                 </div>
             </div>
 
@@ -119,6 +155,7 @@ export default (props) => {
                     margin-top: 45px;
                     margin-left: 20%;
                     margin-right: 20%;
+                    margin-bottom: 45px;
                 }
 
                 .project-title {
@@ -133,6 +170,11 @@ export default (props) => {
 
                     margin-left: calc(50% - 256px/2 - 278px);
                     margin-right: calc(50% - 256px/2 - 278px);
+                }
+
+                .project-card-small {
+                    display: block;
+                    margin: auto;
                 }
 
                 .tech-text {

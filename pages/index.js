@@ -467,6 +467,7 @@ export default (props) => {
                         margin-top: 96px;
                         margin-left: 4%;
                         margin-right: 4%;
+                        margin-bottom: 24px;
                     }
 
                     .intro-header {

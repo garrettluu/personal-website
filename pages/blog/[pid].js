@@ -104,6 +104,16 @@ export default (props) => {
                   text-decoration: none;
                 }
 
+                @media only screen and (max-width: 850px) {
+                    .header-text {
+                        font-size: 48px;
+                    }
+                    .blog-content {
+                        margin-left: 4%;
+                        margin-right: 4%;
+                    }
+                }
+
             `}
       </style>
     </Layout>

@@ -75,7 +75,7 @@ export default (props) => {
                     color: tomato;
                 }
 
-                @media only screen and (max-width: 600px) {
+                @media only screen and (max-width: 850px) {
                     .card {
                         grid-template-columns: 128px auto;
                     }

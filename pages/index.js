@@ -461,6 +461,7 @@ export default (props) => {
                         width: 92%;
                         margin-left: 4%;
                         margin-right: 4%;
+                        justify-content: space-evenly;
                     }
 
                     .intro {

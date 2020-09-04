@@ -33,9 +33,12 @@ export default (props) => {
         <Layout>
             <Parallax scrollFactor={0.5} scrollOffset={0}>
                 <div className="header">
-                    <p className="header-text">
+                    <div className="header-text">
                         Blog
-                        <div className="fancy-rectangle"></div>
+                    </div>
+                    <div className="fancy-rectangle"></div>
+                    <p className="subheader-text">
+                        Musings about life, work, and code
                     </p>
                 </div>
             </Parallax>
@@ -46,6 +49,8 @@ export default (props) => {
             <style jsx>{`
                 .header {
                     display: flex;
+                    flex-direction: column;
+                    justify-content: center;
                     margin: auto;
                     width: 100%;
                     height: 512px;
@@ -55,12 +60,21 @@ export default (props) => {
                 }
 
                 .header-text {
-                    margin: auto;
+                    margin-bottom: 0;
                     text-align: center;
 
                     font-family: 'Oswald';
                     font-size: 72px;
                     color: white;
+                }
+
+                .subheader-text {
+                    text-align: center;
+
+                    font-family: 'Oswald';
+                    font-size: 36px;
+                    color: white;
+                    margin-top: 0;
                 }
 
                 .blog-content {
@@ -69,8 +83,18 @@ export default (props) => {
                 }
 
                 @media only screen and (max-width: 850px) {
+                    // .header {
+                    //     width: 100%;
+                    // }
                     .header-text {
                         font-size: 48px;
+                        padding-left: 4%;
+                        padding-right: 4%;
+                    }
+                    .subheader-text {
+                        font-size: 24px;
+                        padding-left: 4%;
+                        padding-right: 4%;
                     }
                     .blog-content {
                         margin-left: 4%;

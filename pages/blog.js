@@ -35,11 +35,11 @@ export default (props) => {
         <Layout>
             <Parallax scrollFactor={0.5} scrollOffset={0}>
                 <div className="header">
-                    <div className="header-text">
+                    <div className="header-text" data-aos="zoom-out" data-aos-duration={1000}>
                         Blog
                     </div>
-                    <div className="fancy-rectangle"></div>
-                    <p className="subheader-text">
+                    <div className="fancy-rectangle" data-aos="fade-right" data-aos-duration={1000}/>
+                    <p className="subheader-text" data-aos="zoom-out" data-aos-duration={1000} data-aos-delay={500}>
                         Musings about life, work, and code
                     </p>
                 </div>

@@ -8,9 +8,9 @@ export default (props) => {
         <Layout>
             <Parallax scrollFactor={0.5} scrollOffset={0}>
                 <div className="header">
-                    <div className="header-text">
+                    <div className="header-text" data-aos="zoom-out" data-aos-duration={1000}>
                         Projects
-                        <div className="fancy-rectangle"></div>
+                        <div className="fancy-rectangle" data-aos="fade-right" data-aos-duration={1000}/>
                     </div>
                 </div>
             </Parallax>

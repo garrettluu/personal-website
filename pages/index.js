@@ -44,25 +44,27 @@ export default (props) => {
             <Parallax scrollFactor={0.5} scrollOffset={0}>
                 <div className="header">
                     <div className="header-text">
-                        Garrett Luu
-                        <div className="fancy-rectangle" />
+                        <div className="header-text" data-aos="zoom-out" data-aos-duration={1500}>
+                            Garrett Luu
+                        </div>
+                        <div className="fancy-rectangle" data-aos="fade-right" data-aos-duration={1000}/>
                     </div>
                 </div>
             </Parallax>
 
             <div className="square-frame-container">
-                <div data-aos="fade-up-right" data-aos-duration={600}>
+                <div data-aos="fade-up-right" data-aos-duration={1500} data-aos-delay={1000}>
                     <SquareFrame imgLink="/images/title_thumbnail_1.jpg" />
                 </div>
-                <div data-aos="fade-up">
+                <div data-aos="fade-up" data-aos-duration={1500} data-aos-delay={1500}>
                     <SquareFrame imgLink="/images/title_thumbnail_2.jpg" />
                 </div>
-                <div data-aos="fade-up-left">
+                <div data-aos="fade-up-left" data-aos-duration={1500} data-aos-delay={2000}>
                     <SquareFrame imgLink="/images/title_thumbnail_3.jpg" />
                 </div>
             </div>
             <div className="intro">
-                <div className="flex-horizontal">
+                <div className="flex-horizontal" data-aos="fade-right" data-aos-duration={1000} data-aos-delay={2000}>
                     <h1 className="intro-header">
                         I am a&nbsp;
                     </h1>
@@ -72,8 +74,8 @@ export default (props) => {
                         "pursuer of knowledge.",
                     ]} />
                 </div>
-                <div className="fancy-rectangle" />
-                <p className="body-text">
+                <div className="fancy-rectangle" data-aos="fade-right" data-aos-duration={1000} data-aos-delay={2000}/>
+                <p className="body-text" data-aos="fade-right" data-aos-duration={1000} data-aos-delay={2400}>
                     Hello and welcome to my website! I'm Garrett, a UCSD
                     student majoring in Computer Science. I am a developer of
                     various things, and I've worked on a wide variety of
@@ -82,7 +84,7 @@ export default (props) => {
                     something I'm passionate about, and I just love coding and
                     learning whatever I can.
                 </p>
-                <p className="body-text">
+                <p className="body-text" data-aos="fade-right" data-aos-anchor-placement="center-bottom" data-aos-duration={1000} data-aos-delay={2400}>
                     This website is just a personal project for me to learn web
                     development and a place for me to nerd out and talk about
                     my ongoing projects. It also serves as a hub so that anyone
@@ -99,7 +101,7 @@ export default (props) => {
                         <h1 className="subheader-text" data-aos="zoom-out">
                             What I've been up to
                         </h1>
-                        <div className="fancy-rectangle"></div>
+                        <div className="fancy-rectangle" data-aos="fade-right"/>
                         <h2 className="subheader-caption" data-aos="zoom-out">
                             I love to be involved in both school and work.
                         </h2>
@@ -220,7 +222,7 @@ export default (props) => {
                         <h1 className="subheader-text" data-aos="zoom-out">
                             I love to tinker
                         </h1>
-                        <div className="fancy-rectangle"></div>
+                        <div className="fancy-rectangle" data-aos="fade-right"/>
                         <h2 className="subheader-caption" data-aos="zoom-out">
                             Here are some of my projects.
                         </h2>
@@ -253,13 +255,15 @@ export default (props) => {
 
             <Parallax scrollFactor={0.5} scrollOffset={-150}>
                 <div className="subheader" id="blogs">
-                    <h1 className="subheader-text">
-                        What I'm thinking about
-                        <div className="fancy-rectangle"></div>
-                        <h2 className="subheader-caption">
+                    <div className="subheader-text">
+                        <h1 className="subheader-text" data-aos="zoom-out">
+                            What I'm thinking about
+                        </h1>
+                        <div className="fancy-rectangle" data-aos="fade-right"/>
+                        <h2 className="subheader-caption" data-aos="zoom-out">
                             My most recent blog entries.
                         </h2>
-                    </h1>
+                    </div>
                 </div>
             </Parallax>
 
@@ -271,7 +275,7 @@ export default (props) => {
                 <h1 className="subheader-text subheader-black" data-aos="zoom-out">
                     Say Hello
                 </h1>
-                <div className="fancy-rectangle"/>
+                <div className="fancy-rectangle" data-aos="fade-right"/>
             </div>
 
             <div className="social-container">

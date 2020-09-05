@@ -18,15 +18,17 @@ export async function getStaticProps() {
 
 export default (props) => {
     const previews = props.entries.map((e) => (
-        <BlogCard title={e.title}
-            imgLink={e.image}
-            margin={0}
-            date={e.date}
-            link={e.url}>
-            <p className='body-text'>
-                {e.description}
-            </p>
-        </BlogCard>
+        <div data-aos="zoom-out-up">
+            <BlogCard title={e.title}
+                imgLink={e.image}
+                margin={0}
+                date={e.date}
+                link={e.url}>
+                <p className='body-text'>
+                    {e.description}
+                </p>
+            </BlogCard>
+        </div>
     ));
 
     return (

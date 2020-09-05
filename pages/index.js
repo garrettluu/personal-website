@@ -1,15 +1,13 @@
-import React, {useState, useEffect, Children} from 'react';
+import React, { useState, useEffect, Children } from 'react';
 
 import Layout from '../components/Layout';
 import SquareFrame from '../components/SquareFrame';
 import ActivityCard from '../components/ActivityCard';
-import ProjectSummary from '../components/ProjectSummary';
 import TypistLoop from "../components/TypistLoop";
 import BlogCard from "../components/BlogCard";
 import Parallax from "../components/Parallax";
 import axios from 'axios';
-
-import * as data from '../blog-entries.json';
+import AOS from 'aos';
 
 export async function getStaticProps() {
     require('dotenv').config();
@@ -20,9 +18,9 @@ export async function getStaticProps() {
     });
 
     const entries = response.data
-    
+
     return {
-        props: {entries}
+        props: { entries }
     }
 }
 /**
@@ -30,30 +28,38 @@ export async function getStaticProps() {
  */
 export default (props) => {
     const previews = props.entries.map((e) => (
+        <div data-aos="zoom-out-up">
             <BlogCard title={e.title}
-                      imgLink={e.image}
-                      date={e.date}
-                      link={e.url}>
+                imgLink={e.image}
+                date={e.date}
+                link={e.url}>
                 <p className='body-text'>
                     {e.description}
                 </p>
             </BlogCard>
-        ));
+        </div>
+    ));
     return (
         <Layout>
             <Parallax scrollFactor={0.5} scrollOffset={0}>
                 <div className="header">
-                    <p className="header-text">
+                    <div className="header-text">
                         Garrett Luu
-                        <div className="fancy-rectangle"/>
-                    </p>
+                        <div className="fancy-rectangle" />
+                    </div>
                 </div>
             </Parallax>
 
             <div className="square-frame-container">
-                <SquareFrame imgLink="/images/title_thumbnail_1.jpg" />
-                <SquareFrame imgLink="/images/title_thumbnail_2.jpg" />
-                <SquareFrame imgLink="/images/title_thumbnail_3.jpg" />
+                <div data-aos="fade-up-right" data-aos-duration={600}>
+                    <SquareFrame imgLink="/images/title_thumbnail_1.jpg" />
+                </div>
+                <div data-aos="fade-up">
+                    <SquareFrame imgLink="/images/title_thumbnail_2.jpg" />
+                </div>
+                <div data-aos="fade-up-left">
+                    <SquareFrame imgLink="/images/title_thumbnail_3.jpg" />
+                </div>
             </div>
             <div className="intro">
                 <div className="flex-horizontal">
@@ -64,9 +70,9 @@ export default (props) => {
                         "developer.",
                         "mathematician.",
                         "pursuer of knowledge.",
-                    ]}/>
+                    ]} />
                 </div>
-                <div className="fancy-rectangle"/>
+                <div className="fancy-rectangle" />
                 <p className="body-text">
                     Hello and welcome to my website! I'm Garrett, a UCSD
                     student majoring in Computer Science. I am a developer of
@@ -89,54 +95,62 @@ export default (props) => {
 
             <Parallax scrollFactor={0.5} scrollOffset={-150}>
                 <div className="subheader" id="activities">
-                    <h1 className="subheader-text">
-                        What I've been up to
+                    <div className="subheader-text">
+                        <h1 className="subheader-text" data-aos="zoom-out">
+                            What I've been up to
+                        </h1>
                         <div className="fancy-rectangle"></div>
-                        <h2 className="subheader-caption">
+                        <h2 className="subheader-caption" data-aos="zoom-out">
                             I love to be involved in both school and work.
                         </h2>
-                    </h1>
+                    </div>
                 </div>
             </Parallax>
 
             <div className="activitycard-container">
-                <ActivityCard className="activitycard"
-                              imgLink="/images/hack.png"
-                              title="ACM Hack @ UCSD ☕"
-                              role="Co-president & Co-founder"
-                              date="2020.5 - Now">
-                    <p className="body-text">
-                        I'm excited to be starting a new student organization, ACM Hack, dedicated
-                        to software engineering! We plan to host workshop series in web development,
-                        Python, and mobile development, while also connecting students to a greater
-                        computing community.
+                <div data-aos="fade-right">
+                    <ActivityCard className="activitycard"
+                        imgLink="/images/hack.png"
+                        title="ACM Hack @ UCSD ☕"
+                        role="Co-president & Co-founder"
+                        date="2020.5 - Now">
+                        <p className="body-text">
+                            I'm excited to be starting a new student organization, ACM Hack, dedicated
+                            to software engineering! We plan to host workshop series in web development,
+                            Python, and mobile development, while also connecting students to a greater
+                            computing community.
+                        </p>
+                    </ActivityCard>
+                </div>
+                <div data-aos="fade-left">
+                    <ActivityCard className="activitycard"
+                        imgLink="/images/mlh.png"
+                        title="Major League Hacking 💻"
+                        role="Open Source Fellow"
+                        date="2020.6 - 2020.8">
+                        <p className="body-text">
+                            I got the opportunity to participate in the the MLH Fellowship, where I made
+                            open-source contributions to SheetJS (JavaScript spreadsheets
+                            library) and launched new projects WordJS (JavaScript document parsing library)
+                            and Babel Sandbox (Babel IDE).
                     </p>
-                </ActivityCard>
-                <ActivityCard className="activitycard"
-                              imgLink="/images/mlh.png"
-                              title="Major League Hacking 💻"
-                              role="Open Source Fellow"
-                              date="2020.6 - 2020.8">
-                    <p className="body-text">
-                        I got the opportunity to participate in the the MLH Fellowship, where I made
-                        open-source contributions to SheetJS (JavaScript spreadsheets
-                        library) and launched new projects WordJS (JavaScript document parsing library)
-                        and Babel Sandbox (Babel IDE).
+                    </ActivityCard>
+                </div>
+                <div data-aos="fade-right">
+                    <ActivityCard className="activitycard"
+                        imgLink="/images/intelect.png"
+                        title="IntElect 📚"
+                        role="Backend Software Engineer"
+                        date="2020.2 - 2020.8">
+                        <p className="body-text">
+                            Using Express, Node.js, MongoDB, and GraphQL,
+                            I developed the backend API for IntElect, a startup dedicated to connecting
+                            students with opportunities in their career. Working in a startup was an
+                            interesting experience, and I really enjoyed the fast-paced but flexible
+                            environment.
                     </p>
-                </ActivityCard>
-                <ActivityCard className="activitycard"
-                              imgLink="/images/intelect.png"
-                              title="IntElect 📚"
-                              role="Backend Software Engineer"
-                              date="2020.2 - 2020.8">
-                    <p className="body-text">
-                        Using Express, Node.js, MongoDB, and GraphQL, 
-                        I developed the backend API for IntElect, a startup dedicated to connecting
-                        students with opportunities in their career. Working in a startup was an
-                        interesting experience, and I really enjoyed the fast-paced but flexible
-                        environment.
-                    </p>
-                </ActivityCard>
+                    </ActivityCard>
+                </div>
                 {/*internship cancelled :(*/}
                 {/* <ActivityCard className="activitycard"
                               imgLink="/images/bentley.png"
@@ -150,79 +164,85 @@ export default (props) => {
                     </p>
                 </ActivityCard> */}
 
-                <ActivityCard className="activitycard"
-                              imgLink="/images/acm.png"
-                              title="ACM @ UC San Diego 🔷"
-                              role="Technical Event Director"
-                              date="2019.11 - 2020.6">
-                    <p className="body-text">
-                        I taught technical workshops about
-                        Firebase and Git/Unix, volunteered to help during other technical
-                        workshops, and even created a workshop about JSFuck!
+                <div data-aos="fade-left">
+                    <ActivityCard className="activitycard"
+                        imgLink="/images/acm.png"
+                        title="ACM @ UC San Diego 🔷"
+                        role="Technical Event Director"
+                        date="2019.11 - 2020.6">
+                        <p className="body-text">
+                            I taught technical workshops about
+                            Firebase and Git/Unix, volunteered to help during other technical
+                            workshops, and even created a workshop about JSFuck!
 
-                        ACM very quickly became my new home in college. I got to
-                        work with like-minded people who were motivated an passionate
-                        about the same things I was.
+                            ACM very quickly became my new home in college. I got to
+                            work with like-minded people who were motivated an passionate
+                            about the same things I was.
                     </p>
-                </ActivityCard>
-
-                <ActivityCard className="activitycard"
-                              imgLink="/images/ieee.png"
-                              title="IEEE UC San Diego Branch 💡"
-                              role="Competitor and Quarterly Projects Mentor"
-                              date="2019.09 - 2020.3">
-                    <p className="body-text">
-                        I competed in the Quarterly Projects program, where teams of 3-4 are given
-                        a small budget and 8 weeks to design and build a marketable product.
-                        I worked on software and hardware projects such as a heart-rate
-                        sensing glove and an XY plotter device. After competing for two quarters,
-                        I switched to mentoring other teams in the program.
+                    </ActivityCard>
+                </div>
+                <div data-aos="fade-right">
+                    <ActivityCard className="activitycard"
+                        imgLink="/images/ieee.png"
+                        title="IEEE UC San Diego Branch 💡"
+                        role="Competitor and Quarterly Projects Mentor"
+                        date="2019.09 - 2020.3">
+                        <p className="body-text">
+                            I competed in the Quarterly Projects program, where teams of 3-4 are given
+                            a small budget and 8 weeks to design and build a marketable product.
+                            I worked on software and hardware projects such as a heart-rate
+                            sensing glove and an XY plotter device. After competing for two quarters,
+                            I switched to mentoring other teams in the program.
                     </p>
-                </ActivityCard>
-
-                <ActivityCard className="activitycard"
-                              imgLink="/images/staylinked.png"
-                              title="StayLinked Corporation 📗"
-                              role="Web Development Intern"
-                              date="2016.08">
-                    <p className="body-text">
-                        In high school, I had the opportunity to intern at StayLinked, which specializes in
-                        terminal emulation. I was part of a project that involved creating a web application
-                        to customize toolbars for the company software, which is used by over 250 corporate
-                        clients. Previously, customization was done with manually editing a config file, but
-                        we created a GUI that allowed users to simply drag and drop toolbar items and generate
-                        the config file automatically.
+                    </ActivityCard>
+                </div>
+                <div data-aos="fade-left">
+                    <ActivityCard className="activitycard"
+                        imgLink="/images/staylinked.png"
+                        title="StayLinked Corporation 📗"
+                        role="Web Development Intern"
+                        date="2016.08">
+                        <p className="body-text">
+                            In high school, I had the opportunity to intern at StayLinked, which specializes in
+                            terminal emulation. I was part of a project that involved creating a web application
+                            to customize toolbars for the company software, which is used by over 250 corporate
+                            clients. Previously, customization was done with manually editing a config file, but
+                            we created a GUI that allowed users to simply drag and drop toolbar items and generate
+                            the config file automatically.
                     </p>
-                </ActivityCard>
+                    </ActivityCard>
+                </div>
             </div>
 
             <Parallax scrollFactor={0.5} scrollOffset={-150}>
                 <div className="subheader" id="projects">
-                    <h1 className="subheader-text">
-                        I love to tinker
+                    <div className="subheader-text">
+                        <h1 className="subheader-text" data-aos="zoom-out">
+                            I love to tinker
+                        </h1>
                         <div className="fancy-rectangle"></div>
-                        <h2 className="subheader-caption">
+                        <h2 className="subheader-caption" data-aos="zoom-out">
                             Here are some of my projects.
                         </h2>
-                    </h1>
+                    </div>
                 </div>
             </Parallax>
 
             <div className="projectsummary-container">
-                <a href="https://github.com/MLH-Fellowship/babel-sandbox">
-                    <img className="project-card" src="/images/babel.png"/>
+                <a href="https://github.com/MLH-Fellowship/babel-sandbox" data-aos="fade-left">
+                    <img className="project-card" src="/images/babel.png" />
                 </a>
-                <a href="https://github.com/garrettluu/routine.ly">
-                    <img className="project-card" src="/images/routinely.png"/>
+                <a href="https://github.com/garrettluu/routine.ly" data-aos="fade-right">
+                    <img className="project-card" src="/images/routinely.png" />
                 </a>
-                <a href="https://github.com/garrettluu/slearn">
-                    <img className="project-card" src="/images/slearn.png"/>
+                <a href="https://github.com/garrettluu/slearn" data-aos="fade-left">
+                    <img className="project-card" src="/images/slearn.png" />
                 </a>
                 <div className="scale flex-horizontal space-between flex-vertical-mobile">
-                    <a href="https://github.com/garrettluu/stakk">
+                    <a href="https://github.com/garrettluu/stakk" data-aos="fade-right">
                         <img className="project-card project-card-small" src="/images/stakk.png" />
                     </a>
-                    <a href="https://github.com/daniel-d-truong/web-waste">
+                    <a href="https://github.com/daniel-d-truong/web-waste" data-aos="fade-left">
                         <img className="project-card project-card-small" src="/images/webwaste.png" />
                     </a>
                 </div>
@@ -247,20 +267,22 @@ export default (props) => {
                 {previews}
             </div>
 
-            <h1 className="subheader-text subheader-black">
-                Say Hello
+            <div className="subheader-text">
+                <h1 className="subheader-text subheader-black" data-aos="zoom-out">
+                    Say Hello
+                </h1>
                 <div className="fancy-rectangle"/>
-            </h1>
+            </div>
 
             <div className="social-container">
                 <a href="https://www.facebook.com/garrettluu/">
-                    <img className="social-icon" src="/images/facebook.png"/>
+                    <img className="social-icon" src="/images/facebook.png" />
                 </a>
                 <a href="https://www.linkedin.com/in/garrettluu/">
-                    <img className="social-icon" src="/images/linkedin.png"/>
+                    <img className="social-icon" src="/images/linkedin.png" />
                 </a>
                 <a href="https://github.com/garrettluu">
-                    <img className="social-icon" src="/images/github.png"/>
+                    <img className="social-icon" src="/images/github.png" />
                 </a>
             </div>
 

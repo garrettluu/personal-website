@@ -13,8 +13,7 @@ export default (props) => {
     });
 
     return (
-        // Make the fram fade in and become visible once component has mounted
-        <div className={`frame fade-in ${mount && 'visible'}`}>
+        <div className="frame">
             <img src={props.imgLink}></img>
 
             <style jsx>{`

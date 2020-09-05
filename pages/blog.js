@@ -18,26 +18,28 @@ export async function getStaticProps() {
 
 export default (props) => {
     const previews = props.entries.map((e) => (
-        <BlogCard title={e.title}
-            imgLink={e.image}
-            margin={0}
-            date={e.date}
-            link={e.url}>
-            <p className='body-text'>
-                {e.description}
-            </p>
-        </BlogCard>
+        <div data-aos="zoom-out-up">
+            <BlogCard title={e.title}
+                imgLink={e.image}
+                margin={0}
+                date={e.date}
+                link={e.url}>
+                <p className='body-text'>
+                    {e.description}
+                </p>
+            </BlogCard>
+        </div>
     ));
 
     return (
         <Layout>
             <Parallax scrollFactor={0.5} scrollOffset={0}>
                 <div className="header">
-                    <div className="header-text">
+                    <div className="header-text" data-aos="zoom-out" data-aos-duration={1000}>
                         Blog
                     </div>
-                    <div className="fancy-rectangle"></div>
-                    <p className="subheader-text">
+                    <div className="fancy-rectangle" data-aos="fade-right" data-aos-duration={1000}/>
+                    <p className="subheader-text" data-aos="zoom-out" data-aos-duration={1000} data-aos-delay={500}>
                         Musings about life, work, and code
                     </p>
                 </div>

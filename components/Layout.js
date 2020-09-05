@@ -64,12 +64,15 @@ export default ({ children, title = 'Garrett Luu' }) => {
             {children}
 
             <style jsx global>{`
+                html {
+                    overflow-x: hidden;
+                    max-width: 100%;
+                }
 
                 body {
                     margin: 0;
                     top: 0;
-
-                    overflow-y: scroll;
+                    // overflow-y: scroll;
                 }
 
                 .nav-bar {

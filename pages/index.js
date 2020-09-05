@@ -64,7 +64,7 @@ export default (props) => {
                 </div>
             </div>
             <div className="intro">
-                <div className="flex-horizontal" data-aos="fade-right" data-aos-duration={1000} data-aos-delay={2000}>
+                <div className="flex-horizontal" data-aos="fade-right" data-aos-duration={1000} data-aos-delay={2000} data-aos-anchor=".header">
                     <h1 className="intro-header">
                         I am a&nbsp;
                     </h1>
@@ -74,8 +74,8 @@ export default (props) => {
                         "pursuer of knowledge.",
                     ]} />
                 </div>
-                <div className="fancy-rectangle" data-aos="fade-right" data-aos-duration={1000} data-aos-delay={2000}/>
-                <p className="body-text" data-aos="fade-right" data-aos-duration={1000} data-aos-delay={2400}>
+                <div className="fancy-rectangle" data-aos="fade-right" data-aos-duration={1000} data-aos-delay={2000} data-aos-anchor=".header"/>
+                <p className="body-text" data-aos="fade-right" data-aos-duration={1000} data-aos-delay={2400} data-aos-anchor=".header">
                     Hello and welcome to my website! I'm Garrett, a UCSD
                     student majoring in Computer Science. I am a developer of
                     various things, and I've worked on a wide variety of
@@ -84,7 +84,7 @@ export default (props) => {
                     something I'm passionate about, and I just love coding and
                     learning whatever I can.
                 </p>
-                <p className="body-text" data-aos="fade-right" data-aos-anchor-placement="center-bottom" data-aos-duration={1000} data-aos-delay={2400}>
+                <p className="body-text" data-aos="fade-right" data-aos-duration={1000} data-aos-delay={2400} data-aos-anchor=".header">
                     This website is just a personal project for me to learn web
                     development and a place for me to nerd out and talk about
                     my ongoing projects. It also serves as a hub so that anyone

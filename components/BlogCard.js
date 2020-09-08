@@ -5,7 +5,7 @@ export default (props) => {
     return (
         <a className={`card ${props.className}`}
            href={"/blog/" + props.link}>
-            <div>
+            <div className="icon-container">
                 <img className="icon" src={props.imgLink ? props.imgLink : DEFAULT_IMAGE}/>
             </div>
             <div className="info">
@@ -39,6 +39,10 @@ export default (props) => {
 
                 .card:hover {
                     transform: scale(1.1);
+                }
+
+                .icon-container {
+                    margin: auto;
                 }
 
                 .icon {
@@ -77,7 +81,8 @@ export default (props) => {
 
                 @media only screen and (max-width: 850px) {
                     .card {
-                        grid-template-columns: 128px auto;
+                        grid-template-columns: none;
+                        grid-template-rows: 148px auto;
                         margin-top: 24px;
                         margin-bottom: 24px;
                     }

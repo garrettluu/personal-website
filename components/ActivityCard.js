@@ -3,7 +3,7 @@ import React from 'react';
 export default (props) => {
     return (
         <div className={`card ${props.className}`}>
-            <div>
+            <div className="icon-container">
                 <img className="icon" src={props.imgLink}></img>
             </div>
             <div className="info">
@@ -32,6 +32,10 @@ export default (props) => {
                     margin-right: ${props.margin};
 
                     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+                }
+
+                .icon-container {
+                    margin: auto;
                 }
 
                 .icon {
@@ -75,9 +79,10 @@ export default (props) => {
                     color: tomato;
                 }
 
-                @media only screen and (max-width: 600px) {
+                @media only screen and (max-width: 850px) {
                     .card {
-                        grid-template-columns: 128px auto;
+                        grid-template-columns: none;
+                        grid-template-rows: 148px auto;
                         margin-top: 24px;
                         margin-bottom: 24px;
                     }

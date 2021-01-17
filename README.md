@@ -1,8 +1,14 @@
 # Garrett's Personal Website
 
-Hello! This is the code for my personal website. Feel free to look 
+Hello! This is the code for my personal website. Feel free to look
 around. It is mainly built with Next.js and Express, and I'm planning
 to add database support in the future to store blog entries.
+
+## Environment Variables
+
+Create a `.env` file with the following variables:
+
+- `BACKEND_URL` - the URL of your backend api for blog entries.
 
 ## Running
 

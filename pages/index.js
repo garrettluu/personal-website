@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Children } from 'react';
+import React from 'react';
 
 import Layout from '../components/Layout';
 import SquareFrame from '../components/SquareFrame';
@@ -26,7 +26,7 @@ export async function getStaticProps() {
 /**
  * Home page of website
  */
-export default (props) => {
+const Index = (props) => {
     const previews = props.entries.map((e) => (
         <div data-aos="zoom-out-up">
             <BlogCard title={e.title}
@@ -70,13 +70,14 @@ export default (props) => {
                     </h1>
                     <TypistLoop words={[
                         "developer.",
-                        "mathematician.",
+                        "math nerd.",
                         "pursuer of knowledge.",
+                        "caffeine addict.",
                     ]} />
                 </div>
                 <div className="fancy-rectangle" data-aos="fade-right" data-aos-duration={1000} data-aos-delay={2000} data-aos-anchor=".header"/>
                 <p className="body-text" data-aos="fade-right" data-aos-duration={1000} data-aos-delay={2400} data-aos-anchor=".header">
-                    Hello and welcome to my website! I'm Garrett, a UCSD
+                    Hello and welcome to my website! I'm Garrett, a third-year UCSD
                     student majoring in Computer Science. I am a developer of
                     various things, and I've worked on a wide variety of
                     projects in the past, including Android development, FRC
@@ -85,12 +86,17 @@ export default (props) => {
                     learning whatever I can.
                 </p>
                 <p className="body-text" data-aos="fade-right" data-aos-duration={1000} data-aos-delay={2400} data-aos-anchor=".header">
+                    My main interests in software engineering are full-stack web development (mostly React and Node.js) and mobile
+                    development (Flutter, React Native, Android). I'm a product-driven developer; I love the design and development
+                    process that goes into each project, and I try to be intimately involved with each step along the way.
+                </p>
+                <p className="body-text" data-aos="fade-right" data-aos-duration={1000} data-aos-delay={2400} data-aos-anchor=".header">
                     This website is just a personal project for me to learn web
                     development and a place for me to nerd out and talk about
                     my ongoing projects. It also serves as a hub so that anyone
                     can look through my independent projects in one place, and
                     possibly a future portfolio/resume if I want a job or
-                    something. Stuff is still under construction around here,
+                    something. Stuff is always under construction around here,
                     but feel free to have a look around!
                 </p>
             </div>
@@ -112,6 +118,22 @@ export default (props) => {
             <div className="activitycard-container">
                 <div data-aos="fade-right">
                     <ActivityCard className="activitycard"
+                        imgLink="/images/ucsdlibrary.jpeg"
+                        title="UC San Diego Library 📖"
+                        role="VR Applications Developer"
+                        date="2020.9 - Now">
+                        <p className="body-text">
+                            Currently, I'm working part-time developing the user interface
+                            on the Pointcloud project, which leverages technologies
+                            such as Potree and Three.js to display various 3D datasets for research.
+                            Additionally, I am also doing some
+                            backend infrastructure work with AWS, Node.js, and MongoDB to allow researchers to
+                            edit and annotate different datasets.
+                        </p>
+                    </ActivityCard>
+                </div>
+                <div data-aos="fade-left">
+                    <ActivityCard className="activitycard"
                         imgLink="/images/hack.png"
                         title="ACM Hack @ UCSD ☕"
                         role="Co-president & Co-founder"
@@ -121,6 +143,19 @@ export default (props) => {
                             to software engineering! We plan to host workshop series in web development,
                             Python, and mobile development, while also connecting students to a greater
                             computing community.
+                        </p>
+                    </ActivityCard>
+                </div>
+                <div data-aos="fade-right">
+                    <ActivityCard className="activitycard"
+                        imgLink="/images/platter.jpeg"
+                        title="Platter 🍴"
+                        role="Frontend Software Engineering Intern"
+                        date="2020.9 - 2021.1">
+                        <p className="body-text">
+                            I worked with the frontend team to develop a mobile app with
+                            TypeScript and React Native at Platter, a startup that aims to empower local chefs
+                            and small businesses. 
                         </p>
                     </ActivityCard>
                 </div>
@@ -135,7 +170,7 @@ export default (props) => {
                             open-source contributions to SheetJS (JavaScript spreadsheets
                             library) and launched new projects WordJS (JavaScript document parsing library)
                             and Babel Sandbox (Babel IDE).
-                    </p>
+                        </p>
                     </ActivityCard>
                 </div>
                 <div data-aos="fade-right">
@@ -150,7 +185,7 @@ export default (props) => {
                             students with opportunities in their career. Working in a startup was an
                             interesting experience, and I really enjoyed the fast-paced but flexible
                             environment.
-                    </p>
+                        </p>
                     </ActivityCard>
                 </div>
                 {/*internship cancelled :(*/}
@@ -553,3 +588,5 @@ export default (props) => {
         </Layout>
     );
 };
+
+export default Index;

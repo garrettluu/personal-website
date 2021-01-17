@@ -16,7 +16,7 @@ export async function getStaticProps() {
     }
 }
 
-export default (props) => {
+const Blog = (props) => {
     const previews = props.entries.map((e) => (
         <div data-aos="zoom-out-up">
             <BlogCard title={e.title}
@@ -105,3 +105,5 @@ export default (props) => {
         </Layout>
     );
 };
+
+export default Blog;

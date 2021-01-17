@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Typist from 'react-typist';
 
-export default (props) => {
+const TypistLoop = (props) => {
     const words = props.words;
     const [typing, setTyping] = useState(true);
 
@@ -63,3 +63,5 @@ export default (props) => {
         </div>
     );
 };
+
+export default TypistLoop;

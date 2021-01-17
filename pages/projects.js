@@ -3,7 +3,7 @@ import React from 'react';
 import Layout from '../components/Layout';
 import Parallax from '../components/Parallax';
 
-export default (props) => {
+const Projects = (props) => {
     return (
         <Layout>
             <Parallax scrollFactor={0.5} scrollOffset={0}>
@@ -206,3 +206,5 @@ export default (props) => {
         </Layout>
     );
 };
+
+export default Projects;

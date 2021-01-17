@@ -27,7 +27,7 @@ export async function getStaticProps(context) {
   }
 }
 
-export default (props) => {
+const PID = (props) => {
   const router = useRouter();
   const { pid } = router.query;
   return (
@@ -126,3 +126,5 @@ export default (props) => {
     </Layout>
   );
 }
+
+export default PID;

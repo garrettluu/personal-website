@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-export default () => {
+const NotFound = () => {
     return (
         <div id="container">
             <Head>
@@ -48,3 +48,5 @@ export default () => {
         </div>
     );
 };
+
+export default NotFound;

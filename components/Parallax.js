@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-export default (props) => {
+const Parallax = (props) => {
     const PARALLAX_SCROLL_FACTOR = props.scrollFactor ?? 0;
     const PARALLAX_SCROLL_OFFSET = props.scrollOffset ?? 0;
 
@@ -32,3 +32,5 @@ export default (props) => {
         </div>
     );
 }
+
+export default Parallax;

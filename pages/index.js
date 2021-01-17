@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Children } from 'react';
+import React from 'react';
 
 import Layout from '../components/Layout';
 import SquareFrame from '../components/SquareFrame';
@@ -7,7 +7,6 @@ import TypistLoop from "../components/TypistLoop";
 import BlogCard from "../components/BlogCard";
 import Parallax from "../components/Parallax";
 import axios from 'axios';
-import AOS from 'aos';
 
 export async function getStaticProps() {
     require('dotenv').config();

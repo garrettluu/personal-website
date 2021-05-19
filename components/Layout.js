@@ -91,6 +91,8 @@ export default ({ children, title = 'Garrett Luu' }) => {
                 .body-text {
                     font-family: 'Roboto', sans-serif;
                     font-weight: 300;
+                    font-size: 20px;
+                    line-height: 1.5;
                 }
 
                 .body-text strong {

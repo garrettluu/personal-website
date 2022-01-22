@@ -20,7 +20,7 @@
     "next": "^9.3.3",
     "next-connect": "^0.6.3",
     "next-images": "^1.4.0",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-markdown": "^4.3.1",

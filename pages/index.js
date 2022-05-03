@@ -73,6 +73,7 @@ const Index = (props) => {
                         "math nerd.",
                         "pursuer of knowledge.",
                         "caffeine addict.",
+                        "amazon sde intern",
                     ]} />
                 </div>
                 <div className="fancy-rectangle" data-aos="fade-right" data-aos-duration={1000} data-aos-delay={2000} data-aos-anchor=".header"/>
